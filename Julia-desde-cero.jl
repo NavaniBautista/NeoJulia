@@ -1,6 +1,3 @@
-### A Pluto.jl notebook ###
-# v1.0.4
-
 using Markdown
 using InteractiveUtils
 
@@ -15,9 +12,6 @@ macro bind(def, element)
     end
     #! format: on
 end
-
-# ╔═╡ 587d6004-6339-5fd2-8c6a-593753f791e6
-using PlutoUI
 
 # ╔═╡ e7f0e7da-36cf-5780-b0fe-59ae6e1e5e4a
 html"""
@@ -135,6 +129,38 @@ details.plegable summary { cursor: pointer; font-weight: 600; }
 details.plegable[open] summary { margin-bottom: .5rem; }
 details.plegable p { margin: .3rem 0; }
 
+/* ---------- CONTROLES PROPIOS (sin paquetes) ---------- */
+.opciones { display: flex; flex-direction: column; gap: .4rem; margin: .6rem 0; font-family: var(--font-body); }
+.opc {
+    display: flex; align-items: center; gap: .6rem; cursor: pointer;
+    padding: .5rem .8rem; border-radius: 10px;
+    border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+    background: color-mix(in srgb, currentColor 3%, transparent);
+    font-size: .98rem; line-height: 1.4;
+}
+.opc:hover { background: color-mix(in srgb, currentColor 8%, transparent); }
+.opc input { accent-color: var(--julia-purple); width: 1.05rem; height: 1.05rem; margin: 0; }
+.deslizador { display: inline-flex; align-items: center; gap: .8rem; vertical-align: middle; font-family: var(--font-body); }
+.deslizador input { width: min(300px, 55vw); accent-color: var(--julia-purple); }
+.deslizador output { min-width: 2.4rem; font-weight: 800; color: var(--julia-purple); }
+.campo-texto {
+    font-family: var(--font-body); font-size: 1rem; padding: .4rem .8rem; border-radius: 10px;
+    border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+    background: color-mix(in srgb, currentColor 4%, transparent); color: inherit;
+}
+
+/* ---------- INDICE FLOTANTE ---------- */
+.indice {
+    position: fixed; top: 6.5rem; right: 1.2rem; width: 210px; max-height: 70vh; overflow-y: auto;
+    padding: .2rem .9rem; border-left: 2px solid color-mix(in srgb, currentColor 18%, transparent);
+    font-family: var(--font-body); font-size: .82rem; line-height: 1.3;
+}
+.indice b { display: block; text-transform: uppercase; letter-spacing: .12em; font-size: .7rem; opacity: .6; margin-bottom: .4rem; }
+.indice ol { list-style: none; margin: 0; padding: 0; }
+.indice a { display: block; padding: .28rem 0; text-decoration: none; color: inherit; opacity: .75; }
+.indice a:hover { opacity: 1; color: var(--accent); }
+@media (max-width: 1350px) { .indice { display: none; } }
+
 @media (max-width: 700px) {
     .hero { padding: 2rem 1.4rem; }
     pluto-output h1 { font-size: 1.9rem; }
@@ -161,7 +187,46 @@ html"""
 """
 
 # ╔═╡ 7cadf5ee-4e0b-5c2e-873c-920a05dcc2f2
-TableOfContents(title = "Contenido", aside = true)
+HTML(raw"""
+<nav class="indice">
+  <b>Contenido</b>
+  <ol></ol>
+  <script>
+    const nav = currentScript.parentElement;
+    const lista = nav.querySelector('ol');
+    let firma = '';
+
+    function construir() {
+      const titulos = Array.from(document.querySelectorAll('pluto-output h1'))
+        .filter(h => !h.closest('.hero'));
+      const nueva = titulos.map(h => h.textContent).join('|');
+      if (nueva === firma) return;
+      firma = nueva;
+      lista.innerHTML = '';
+      titulos.forEach(h => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.textContent = h.textContent;
+        a.href = '#';
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        li.appendChild(a);
+        lista.appendChild(li);
+      });
+    }
+
+    construir();
+    const obs = new MutationObserver(() => {
+      clearTimeout(window.__indice_timer);
+      window.__indice_timer = setTimeout(construir, 400);
+    });
+    obs.observe(document.body, { childList: true, subtree: true });
+    if (typeof invalidation !== 'undefined') invalidation.then(() => obs.disconnect());
+  </script>
+</nav>
+""")
 
 # ╔═╡ b5e2329d-160d-508a-9381-0d4493be590e
 begin
@@ -190,6 +255,70 @@ begin
         else
             aviso("danger", "Todavía no", pista)
         end
+    end
+end;
+
+# ╔═╡ c0ffee00-0001-5000-8000-0000000000a1
+begin
+    # Controles interactivos propios: HTML + JavaScript puro, sin PlutoUI.
+    # Así el cuaderno no instala ni precompila ningún paquete (Binder arranca casi al instante).
+
+    struct Entrada
+        html::String
+        inicial::Any
+    end
+    Base.show(io::IO, ::MIME"text/html", w::Entrada) = print(io, w.html)
+    Base.get(w::Entrada) = w.inicial
+
+    escapar_html(s) = replace(string(s), "&" => "&amp;", "<" => "&lt;", ">" => "&gt;", "\"" => "&quot;")
+
+    # Campo de texto
+    function campo_texto(inicial = "")
+        Entrada("""<span><input class="campo-texto" type="text" value="$(escapar_html(inicial))"><script>
+            const root = currentScript.parentElement;
+            const campo = root.querySelector('input');
+            root.value = campo.value;
+            root.addEventListener('input', () => { root.value = campo.value; }, true);
+        </script></span>""", string(inicial))
+    end
+
+    # Opción múltiple (se elige una); valor inicial: nothing
+    function opciones(lista)
+        grupo = "g" * string(rand(UInt32), base = 16)
+        items = join(["""<label class="opc"><input type="radio" name="$grupo" value="$(escapar_html(o))"><span>$(escapar_html(o))</span></label>""" for o in lista])
+        Entrada("""<span class="opciones">$items<script>
+            const root = currentScript.parentElement;
+            root.addEventListener('input', () => {
+                const marcada = root.querySelector('input:checked');
+                root.value = marcada ? marcada.value : undefined;
+            }, true);
+        </script></span>""", nothing)
+    end
+
+    # Casillas (se marcan varias); valor: lista de textos marcados
+    function casillas(lista)
+        items = join(["""<label class="opc"><input type="checkbox" value="$(escapar_html(o))"><span>$(escapar_html(o))</span></label>""" for o in lista])
+        Entrada("""<span class="opciones">$items<script>
+            const root = currentScript.parentElement;
+            root.value = [];
+            root.addEventListener('input', () => {
+                root.value = Array.from(root.querySelectorAll('input:checked')).map(i => i.value);
+            }, true);
+        </script></span>""", String[])
+    end
+
+    # Deslizador con el valor visible
+    function deslizador(rango; default = first(rango))
+        Entrada("""<span class="deslizador"><input type="range" min="$(first(rango))" max="$(last(rango))" step="$(step(rango))" value="$default"><output>$default</output><script>
+            const root = currentScript.parentElement;
+            const barra = root.querySelector('input');
+            const salida = root.querySelector('output');
+            root.value = barra.valueAsNumber;
+            root.addEventListener('input', () => {
+                root.value = barra.valueAsNumber;
+                salida.textContent = barra.value;
+            }, true);
+        </script></span>""", default)
     end
 end;
 
@@ -243,7 +372,7 @@ md"""
 
 Ahora algo **interactivo**: escribe tu nombre y la celda de abajo reacciona sola. Esa es la gran idea de Pluto: cuando cambia un dato, todo lo que depende de él se recalcula.
 
-Tu nombre: $(@bind nombre TextField(default = "mundo"))
+Tu nombre: $(@bind nombre campo_texto("mundo"))
 """
 
 # ╔═╡ af8c87a7-b6a4-5d5b-9827-b71678bf9a14
@@ -253,7 +382,7 @@ md"### ¡Hola, **$(nombre)**! 👋"
 md"""
 **③ Comprueba.** ¿qué hace `println("Hola")`?
 
-$(@bind q_print Radio([
+$(@bind q_print opciones([
     "Guarda la palabra Hola dentro de una variable",
     "Muestra Hola en pantalla y salta de línea",
     "Calcula el resultado de Hola",
@@ -340,7 +469,7 @@ end
 md"""
 **③ Comprueba.** ¿qué resultado da `7 / 2` en Julia?
 
-$(@bind q_div Radio(["3", "3.5", "3.0"]))
+$(@bind q_div opciones(["3", "3.5", "3.0"]))
 """
 
 # ╔═╡ f5162cbe-a684-5fa2-a14a-705d3d60689a
@@ -395,7 +524,7 @@ x = 10
 
 ¿Cuánto vale `y` al final?
 
-$(@bind q_var Radio(["5", "10", "15"]))
+$(@bind q_var opciones(["5", "10", "15"]))
 """
 
 # ╔═╡ 5cabd81d-5dfc-5ef5-a136-220e06791a33
@@ -476,7 +605,7 @@ end
 md"""
 **③ Comprueba.** ¿qué devuelve `typeof(3 / 1)`?
 
-$(@bind q_tipo Radio(["Int64", "Float64", "String"]))
+$(@bind q_tipo opciones(["Int64", "Float64", "String"]))
 """
 
 # ╔═╡ d92807ee-be04-52bc-af11-e209b0829ec2
@@ -537,7 +666,7 @@ end
 md"""
 **③ Comprueba.** ves `MethodError: no method matching +(::String, ::Int64)`. ¿Qué significa?
 
-$(@bind q_error Radio([
+$(@bind q_error opciones([
     "Julia no sabe sumar un texto con un entero",
     "Falta instalar un paquete",
     "La computadora se quedó sin memoria",
@@ -601,7 +730,7 @@ methods(describir)
 md"""
 **③ Comprueba.** en multiple dispatch, ¿qué decide qué método se ejecuta?
 
-$(@bind q_dispatch Radio([
+$(@bind q_dispatch opciones([
     "El nombre del archivo donde está la función",
     "Los tipos de los argumentos con que la llamas",
     "El orden en que escribiste los métodos",
@@ -684,7 +813,7 @@ plegable("⚠️ Ojo: un error muy común", md"Olvidar el `end` que cierra una f
 md"""
 **③ Comprueba.** con la función `clasificar` de arriba, ¿qué devuelve `clasificar(0)`?
 
-$(@bind q_flujo Radio(["negativo", "cero", "positivo"]))
+$(@bind q_flujo opciones(["negativo", "cero", "positivo"]))
 """
 
 # ╔═╡ 97197bc8-11c1-5a31-b8d0-59949b6263a7
@@ -708,9 +837,9 @@ $(kicker("08 · Laboratorio"))
 
 Mueve los deslizadores y observa cómo se recalcula la celda de abajo. Piensa como científico: **cambia una cosa a la vez** y anota qué pasa.
 
-**a** = $(@bind a Slider(1:20, default = 12, show_value = true))
+**a** = $(@bind a deslizador(1:20, default = 12))
 
-**b** = $(@bind b Slider(1:20, default = 4, show_value = true))
+**b** = $(@bind b deslizador(1:20, default = 4))
 """
 
 # ╔═╡ a4e1e17c-31bb-59c4-9876-92af3c5ebdc5
@@ -732,7 +861,7 @@ end
 # ╔═╡ de33c469-5b0b-5694-9eb9-7dc5e051d6cb
 md"""
 !!! warning "Reto extra"
-    En la celda de los deslizadores cambia `Slider(1:20, ...)` de **a** por `Slider(0.5:0.5:20, default = 12.5, show_value = true)`. ¿Qué cambia en `tipo_de_a`? Conecta tu respuesta con la sección de tipos.
+    En la celda de arriba añade `tipo_de_division = typeof(a / b)` dentro de la tupla. ¿Por qué `tipo_de_a` es `Int64` pero `tipo_de_division` es `Float64`, aunque `a` y `b` sean enteros? Conecta tu respuesta con las secciones de operaciones y de tipos.
 """
 
 # ╔═╡ 7cc5535b-a33d-5dcc-87b9-c3fe9817ce04
@@ -824,7 +953,7 @@ $(kicker("10 · Autoevaluación"))
 
 Marca con sinceridad lo que podrías hacer **sin mirar el cuaderno**. Lo que dejes sin marcar es lo que conviene repasar.
 
-$(@bind progreso MultiCheckBox([
+$(@bind progreso casillas([
     "Ejecutar una celda y mostrar un mensaje con println",
     "Hacer operaciones y explicar la diferencia entre / y ÷",
     "Crear variables y explicar que son etiquetas, no cajas",
@@ -893,250 +1022,12 @@ html"""
 </div>
 """
 
-# ╔═╡ 00000000-0000-0000-0000-000000000001
-PLUTO_PROJECT_TOML_CONTENTS = """
-[deps]
-PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-
-[compat]
-PlutoUI = "~0.7.83"
-"""
-
-# ╔═╡ 00000000-0000-0000-0000-000000000002
-PLUTO_MANIFEST_TOML_CONTENTS = """
-# This file is machine-generated - editing it directly is not advised
-
-julia_version = "1.12.7"
-manifest_format = "2.0"
-project_hash = "40c9f1cac973d64f8ca3ef3a09f769ff947e80f3"
-
-[[deps.AbstractPlutoDingetjes]]
-git-tree-sha1 = "e71ee7b4aa06b045259a7d6101e1cb45ad140bce"
-uuid = "6e696c72-6542-2067-7265-42206c756150"
-version = "1.4.1"
-
-[[deps.ArgTools]]
-uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
-version = "1.1.2"
-
-[[deps.Artifacts]]
-uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
-version = "1.11.0"
-
-[[deps.Base64]]
-uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
-version = "1.11.0"
-
-[[deps.ColorTypes]]
-deps = ["FixedPointNumbers", "Random"]
-git-tree-sha1 = "61761f58648aa7217445f24f841839b78c712232"
-uuid = "3da002f7-5984-5a60-b8a6-cbb66c0b333f"
-version = "0.12.3"
-weakdeps = ["StyledStrings"]
-
-    [deps.ColorTypes.extensions]
-    StyledStringsExt = "StyledStrings"
-
-[[deps.CompilerSupportLibraries_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
-version = "1.3.1+2"
-
-[[deps.Dates]]
-deps = ["Printf"]
-uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
-version = "1.11.0"
-
-[[deps.Downloads]]
-deps = ["ArgTools", "FileWatching", "LibCURL", "NetworkOptions"]
-uuid = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
-version = "1.7.0"
-
-[[deps.FileWatching]]
-uuid = "7b1f6079-737a-58dc-b8bc-7a2ca5c1b5ee"
-version = "1.11.0"
-
-[[deps.FixedPointNumbers]]
-deps = ["Random", "Statistics"]
-git-tree-sha1 = "59af96b98217c6ef4ae0dfe065ac7c20831d1a84"
-uuid = "53c48c17-4a7d-5ca2-90c5-79b7896eea93"
-version = "0.8.6"
-
-[[deps.Hyperscript]]
-deps = ["Test"]
-git-tree-sha1 = "179267cfa5e712760cd43dcae385d7ea90cc25a4"
-uuid = "47d2ed2b-36de-50cf-bf87-49c2cf4b8b91"
-version = "0.0.5"
-
-[[deps.HypertextLiteral]]
-deps = ["Tricks"]
-git-tree-sha1 = "d1a86724f81bcd184a38fd284ce183ec067d71a0"
-uuid = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
-version = "1.0.0"
-
-[[deps.IOCapture]]
-deps = ["Logging", "Random"]
-git-tree-sha1 = "0ee181ec08df7d7c911901ea38baf16f755114dc"
-uuid = "b5f81e59-6552-4d32-b1f0-c071b021bf89"
-version = "1.0.0"
-
-[[deps.InteractiveUtils]]
-deps = ["Markdown"]
-uuid = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
-version = "1.11.0"
-
-[[deps.JuliaSyntaxHighlighting]]
-deps = ["StyledStrings"]
-uuid = "ac6e5ff7-fb65-4e79-a425-ec3bc9c03011"
-version = "1.12.0"
-
-[[deps.LibCURL]]
-deps = ["LibCURL_jll", "MozillaCACerts_jll"]
-uuid = "b27032c2-a3e7-50c8-80cd-2d36dbcbfd21"
-version = "0.6.4"
-
-[[deps.LibCURL_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "OpenSSL_jll", "Zlib_jll", "nghttp2_jll"]
-uuid = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
-version = "8.15.0+0"
-
-[[deps.LibSSH2_jll]]
-deps = ["Artifacts", "Libdl", "OpenSSL_jll"]
-uuid = "29816b5a-b9ab-546f-933c-edad1886dfa8"
-version = "1.11.3+1"
-
-[[deps.Libdl]]
-uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
-version = "1.11.0"
-
-[[deps.LinearAlgebra]]
-deps = ["Libdl", "OpenBLAS_jll", "libblastrampoline_jll"]
-uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-version = "1.12.0"
-
-[[deps.Logging]]
-uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
-version = "1.11.0"
-
-[[deps.MIMEs]]
-git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
-uuid = "6c6e2e6c-3030-632d-7369-2d6c69616d65"
-version = "1.1.0"
-
-[[deps.Markdown]]
-deps = ["Base64", "JuliaSyntaxHighlighting", "StyledStrings"]
-uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
-version = "1.11.0"
-
-[[deps.MozillaCACerts_jll]]
-uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
-version = "2025.11.4"
-
-[[deps.NetworkOptions]]
-uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
-version = "1.3.0"
-
-[[deps.OpenBLAS_jll]]
-deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
-uuid = "4536629a-c528-5b80-bd46-f80d51c5b363"
-version = "0.3.29+0"
-
-[[deps.OpenSSL_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "458c3c95-2e84-50aa-8efc-19380b2a3a95"
-version = "3.5.6+0"
-
-[[deps.PlutoUI]]
-deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
-git-tree-sha1 = "e189d0623e7ce9c37389bac17e80aac3b0302e75"
-uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-version = "0.7.83"
-
-[[deps.Printf]]
-deps = ["Unicode"]
-uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
-version = "1.11.0"
-
-[[deps.Random]]
-deps = ["SHA"]
-uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
-version = "1.11.0"
-
-[[deps.Reexport]]
-git-tree-sha1 = "45e428421666073eab6f2da5c9d310d99bb12f9b"
-uuid = "189a3867-3050-52da-a836-e630ba90ab69"
-version = "1.2.2"
-
-[[deps.SHA]]
-uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
-version = "0.7.0"
-
-[[deps.Serialization]]
-uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
-version = "1.11.0"
-
-[[deps.Statistics]]
-deps = ["LinearAlgebra"]
-git-tree-sha1 = "e2b53ce13a53367e96601081e33d34746b571bad"
-uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
-version = "1.11.5"
-
-    [deps.Statistics.extensions]
-    SparseArraysExt = ["SparseArrays"]
-
-    [deps.Statistics.weakdeps]
-    SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
-
-[[deps.StyledStrings]]
-uuid = "f489334b-da3d-4c2e-b8f0-e476e12c162b"
-version = "1.11.0"
-
-[[deps.Test]]
-deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
-uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
-version = "1.11.0"
-
-[[deps.Tricks]]
-git-tree-sha1 = "311349fd1c93a31f783f977a71e8b062a57d4101"
-uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
-version = "0.1.13"
-
-[[deps.URIs]]
-git-tree-sha1 = "908fec9df6c5de98548ead82a468c95ccf6cd263"
-uuid = "5c2747f8-b7ea-4ff2-ba2e-563bfd36b1d4"
-version = "1.7.0"
-
-[[deps.UUIDs]]
-deps = ["Random", "SHA"]
-uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
-version = "1.11.0"
-
-[[deps.Unicode]]
-uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
-version = "1.11.0"
-
-[[deps.Zlib_jll]]
-deps = ["Libdl"]
-uuid = "83775a58-1f1d-513f-b197-d71354ab007a"
-version = "1.3.1+2"
-
-[[deps.libblastrampoline_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
-version = "5.15.0+0"
-
-[[deps.nghttp2_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
-version = "1.64.0+1"
-"""
-
 # ╔═╡ Cell order:
 # ╟─e7f0e7da-36cf-5780-b0fe-59ae6e1e5e4a
 # ╟─24e1e176-e21b-512a-8efb-30e247a99de1
-# ╟─587d6004-6339-5fd2-8c6a-593753f791e6
 # ╟─7cadf5ee-4e0b-5c2e-873c-920a05dcc2f2
 # ╟─b5e2329d-160d-508a-9381-0d4493be590e
+# ╟─c0ffee00-0001-5000-8000-0000000000a1
 # ╟─7643af80-dca8-5387-9190-1582621bb73f
 # ╟─60a63814-83b0-5041-9920-41b686892ac3
 # ╠═b8299810-2e68-5bbc-b601-0ec20d0b6fa4
@@ -1213,5 +1104,3 @@ version = "1.64.0+1"
 # ╟─1e3edcd4-42bc-5d88-a32a-f896d6a9dd7d
 # ╟─e07439f8-3e5d-5f6a-a9a7-6859e3fd73f7
 # ╟─4ee8eeb0-bac6-5a07-9891-cec5b619f138
-# ╟─00000000-0000-0000-0000-000000000001
-# ╟─00000000-0000-0000-0000-000000000002
