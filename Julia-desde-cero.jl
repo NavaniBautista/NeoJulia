@@ -16,7 +16,7 @@ macro bind(def, element)
     #! format: on
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000001
+# ╔═╡ e7f0e7da-36cf-5780-b0fe-59ae6e1e5e4a
 html"""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap');
@@ -85,7 +85,7 @@ pluto-output .admonition.danger .admonition-title { color: var(--julia-red) !imp
 .hero .eyebrow { color: #D9C3EA; text-transform: uppercase; letter-spacing: .18em; font-size: .76rem; font-weight: 700; font-family: var(--font-body); }
 .hero h1 { color: white !important; border: none !important; font-family: var(--font-display);
     font-size: clamp(2.6rem, 7vw, 4.4rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; margin: 1rem 0; padding: 0; }
-.hero p { color: #E8E2EF !important; font-family: var(--font-body); font-size: 1.1rem !important; line-height: 1.75; max-width: 620px; margin: 0; }
+.hero p { color: #E8E2EF !important; font-family: var(--font-body); font-size: 1.1rem !important; line-height: 1.75; max-width: 600px; margin: 0; }
 .julia-dots { display: flex; gap: 12px; margin: 1.4rem 0 0; }
 .julia-dots span { width: 20px; height: 20px; display: inline-block; border-radius: 50%; box-shadow: 0 0 0 5px #FFFFFF12; }
 .julia-dots span:nth-child(1) { background: var(--julia-red); }
@@ -102,7 +102,6 @@ pluto-output .admonition.danger .admonition-title { color: var(--julia-red) !imp
     font-family: var(--font-body); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
 }
 .kicker-num { background: var(--accent); color: white; border-radius: 999px; padding: .15rem .55rem; font-weight: 800; letter-spacing: .04em; }
-.nivel { font-family: var(--font-body); letter-spacing: .25em; color: var(--accent); font-size: .85rem; font-weight: 700; }
 
 /* ---------- TARJETAS ---------- */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin: 1rem 0; font-family: var(--font-body); }
@@ -118,7 +117,6 @@ pluto-output .admonition.danger .admonition-title { color: var(--julia-red) !imp
 .card.green { border-top: 4px solid var(--julia-green); }   .card.green b { color: var(--julia-green); }
 .card.purple { border-top: 4px solid var(--julia-purple); } .card.purple b { color: var(--julia-purple); }
 .card.blue { border-top: 4px solid var(--julia-blue); }     .card.blue b { color: var(--julia-blue); }
-.card.gold { border-top: 4px solid #D99A00; }               .card.gold b { color: #D99A00; }
 
 .footer { text-align: center; opacity: .65; padding: 2rem 0; font-family: var(--font-body);
     border-top: 1px solid color-mix(in srgb, currentColor 20%, transparent); margin-top: 3rem; }
@@ -147,15 +145,12 @@ details.plegable p { margin: .3rem 0; }
 .opc input { accent-color: var(--julia-purple); width: 1.05rem; height: 1.05rem; margin: 0; }
 .deslizador { display: inline-flex; align-items: center; gap: .8rem; vertical-align: middle; font-family: var(--font-body); }
 .deslizador input { width: min(300px, 55vw); accent-color: var(--julia-purple); }
-.deslizador output { min-width: 3rem; font-weight: 800; color: var(--julia-purple); }
+.deslizador output { min-width: 2.4rem; font-weight: 800; color: var(--julia-purple); }
 .campo-texto {
     font-family: var(--font-body); font-size: 1rem; padding: .4rem .8rem; border-radius: 10px;
     border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
     background: color-mix(in srgb, currentColor 4%, transparent); color: inherit;
 }
-
-/* ---------- VISUALIZACIONES ---------- */
-.viz { margin: 1rem 0; }
 
 /* ---------- INDICE FLOTANTE ---------- */
 .indice {
@@ -179,23 +174,22 @@ details.plegable p { margin: .3rem 0; }
   <div class="eyebrow">NeoCats · Cuaderno interactivo</div>
   <div class="julia-dots"><span></span><span></span><span></span><span></span></div>
   <h1>Julia desde cero</h1>
-  <p>De tu primer «Hola, mundo» a fractales y partículas cuánticas. Empiezas despacio, y cada nivel sube un peldaño: aprendes programación viendo moverse las matemáticas.</p>
+  <p>Aprende programación experimentando. Escribe código, ejecuta instrucciones y descubre los tipos de datos de un lenguaje diseñado para la computación científica.</p>
 </div>
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000002
+# ╔═╡ 24e1e176-e21b-512a-8efb-30e247a99de1
 html"""
-<p style="margin:.4rem 0 0; font-weight:700; font-family:var(--font-body)">Tu ruta · aprox. 1 h 30 · cada nivel sube la apuesta</p>
+<p style="margin:.4rem 0 0; font-weight:700; font-family:var(--font-body)">Tu ruta de aprendizaje · aprox. 1 hora</p>
 <div class="cards">
-  <div class="card red"><b>Nivel 1 · Despegue</b>Variables, números, tipos y errores. Con calma y sin saltarse nada.<br><small style="opacity:.7">≈ 25 min</small></div>
-  <div class="card green"><b>Nivel 2 · Ondas</b>Funciones, arreglos y series de Fourier que verás moverse.<br><small style="opacity:.7">≈ 20 min</small></div>
-  <div class="card purple"><b>Nivel 3 · Fractales</b>Bucles y números complejos: tu propio conjunto de Mandelbrot.<br><small style="opacity:.7">≈ 20 min</small></div>
-  <div class="card blue"><b>Nivel 4 · Cuántica</b>Una partícula en una caja y su función de onda.<br><small style="opacity:.7">≈ 15 min</small></div>
-  <div class="card gold"><b>Nivel 5 · Tus tipos</b>Define tus propios objetos y deja que Julia elija por tipos.<br><small style="opacity:.7">≈ 10 min</small></div>
+  <div class="card red"><b>1 · Empezar</b>Mensajes, operaciones y variables.<br><small style="opacity:.7">≈ 15 min</small></div>
+  <div class="card green"><b>2 · Entender</b>Tipos de datos, errores y por qué Julia es distinto.<br><small style="opacity:.7">≈ 15 min</small></div>
+  <div class="card purple"><b>3 · Programar</b>Funciones, condicionales y bucles.<br><small style="opacity:.7">≈ 15 min</small></div>
+  <div class="card blue"><b>4 · Practicar</b>Laboratorio, ejercicios y autoevaluación.<br><small style="opacity:.7">≈ 15 min</small></div>
 </div>
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000003
+# ╔═╡ 7cadf5ee-4e0b-5c2e-873c-920a05dcc2f2
 HTML(raw"""
 <nav class="indice">
   <b>Contenido</b>
@@ -237,15 +231,12 @@ HTML(raw"""
 </nav>
 """)
 
-# ╔═╡ d0000001-0000-5000-8000-000000000004
+# ╔═╡ b5e2329d-160d-508a-9381-0d4493be590e
 begin
     function kicker(texto)
         num, etiqueta = split(texto, " · "; limit = 2)
         HTML("<span class=\"kicker\"><span class=\"kicker-num\">$num</span>$etiqueta</span>")
     end
-
-    # Estrellas de dificultad (de 1 a 5)
-    nivel(n) = HTML("<span class=\"nivel\">" * "★"^n * "☆"^(5 - n) * "</span>")
 
     aviso(tipo, titulo, texto) =
         Markdown.MD(Markdown.Admonition(tipo, titulo, [Markdown.parse(texto)]))
@@ -270,7 +261,7 @@ begin
     end
 end;
 
-# ╔═╡ d0000001-0000-5000-8000-000000000005
+# ╔═╡ c0ffee00-0001-5000-8000-0000000000a1
 begin
     # Controles interactivos propios: HTML + JavaScript puro, sin PlutoUI.
     # Así el cuaderno no instala ni precompila ningún paquete (Binder arranca casi al instante).
@@ -326,199 +317,73 @@ begin
             const barra = root.querySelector('input');
             const salida = root.querySelector('output');
             root.value = barra.valueAsNumber;
-            salida.textContent = barra.value;
             root.addEventListener('input', () => {
                 root.value = barra.valueAsNumber;
                 salida.textContent = barra.value;
             }, true);
         </script></span>""", default)
     end
-
-    # Lista desplegable
-    function selector(lista; default = first(lista))
-        items = join(["""<option value="$(escapar_html(o))"$(o == default ? " selected" : "")>$(escapar_html(o))</option>""" for o in lista])
-        Entrada("""<span><select class="campo-texto">$items</select><script>
-            const root = currentScript.parentElement;
-            const lista = root.querySelector('select');
-            root.value = lista.value;
-            root.addEventListener('input', () => { root.value = lista.value; }, true);
-        </script></span>""", default)
-    end
 end;
 
-# ╔═╡ d0000001-0000-5000-8000-000000000006
-begin
-    # Visualización sin paquetes: gráficas en SVG y mapas de color en <canvas>.
-
-    function grafica(xs, series; etiquetas = String[], relleno = 0, punteadas = Int[])
-        xs = collect(Float64, xs)
-        series = [collect(Float64, s) for s in series]
-        ancho, alto = 680, 280
-        ml, mr, mt, mb = 48, 14, 26, 32
-        colores = ["#4063D8", "#389826", "#9558B2", "#CB3C33"]
-
-        ylo = minimum(minimum, series)
-        yhi = maximum(maximum, series)
-        if yhi - ylo < 1e-9
-            ylo -= 1
-            yhi += 1
-        end
-        pad = 0.08 * (yhi - ylo)
-        ylo -= pad
-        yhi += pad
-        xlo, xhi = first(xs), last(xs)
-
-        px(x) = ml + (x - xlo) / (xhi - xlo) * (ancho - ml - mr)
-        py(y) = alto - mb - (y - ylo) / (yhi - ylo) * (alto - mt - mb)
-        f2(v) = string(round(v, digits = 2) + 0.0)
-
-        partes = String[]
-
-        # Rejilla y marcas del eje y
-        for v in range(ylo, yhi, length = 5)
-            y = round(py(v), digits = 1)
-            push!(partes, """<line x1="$ml" x2="$(ancho - mr)" y1="$y" y2="$y" stroke="currentColor" stroke-opacity=".12"/>""")
-            push!(partes, """<text x="$(ml - 6)" y="$(y + 4)" text-anchor="end" font-size="11" fill="currentColor" fill-opacity=".65">$(f2(v))</text>""")
-        end
-
-        # Marcas del eje x
-        for v in range(xlo, xhi, length = 5)
-            x = round(px(v), digits = 1)
-            push!(partes, """<text x="$x" y="$(alto - mb + 17)" text-anchor="middle" font-size="11" fill="currentColor" fill-opacity=".65">$(f2(v))</text>""")
-        end
-
-        # Línea del cero
-        if ylo < 0 < yhi
-            y0 = round(py(0.0), digits = 1)
-            push!(partes, """<line x1="$ml" x2="$(ancho - mr)" y1="$y0" y2="$y0" stroke="currentColor" stroke-opacity=".4"/>""")
-        end
-
-        # Curvas
-        for (i, s) in enumerate(series)
-            c = colores[mod1(i, length(colores))]
-            puntos = join(("$(round(px(x), digits = 1)),$(round(py(y), digits = 1))" for (x, y) in zip(xs, s)), " ")
-            if i == relleno
-                base = round(py(clamp(0.0, ylo, yhi)), digits = 1)
-                x_ini = round(px(xs[1]), digits = 1)
-                x_fin = round(px(xs[end]), digits = 1)
-                push!(partes, """<polygon points="$x_ini,$base $puntos $x_fin,$base" fill="$c" fill-opacity=".18" stroke="none"/>""")
-            end
-            guiones = i in punteadas ? " stroke-dasharray=\"6 5\"" : ""
-            push!(partes, """<polyline points="$puntos" fill="none" stroke="$c" stroke-width="2.2" stroke-linejoin="round"$guiones/>""")
-        end
-
-        # Leyenda
-        for (i, e) in enumerate(etiquetas)
-            c = colores[mod1(i, length(colores))]
-            x0 = ml + 10 + (i - 1) * 150
-            push!(partes, """<rect x="$x0" y="8" width="12" height="4" rx="2" fill="$c"/><text x="$(x0 + 18)" y="14" font-size="11.5" fill="currentColor">$(escapar_html(e))</text>""")
-        end
-
-        HTML("""<div class="viz"><svg viewBox="0 0 $ancho $alto" role="img" style="width:100%;max-width:720px;height:auto;display:block;font-family:var(--font-body)">$(join(partes, "\n"))</svg></div>""")
-    end
-
-    # Pinta una matriz de enteros (tiempos de escape) como imagen en color
-    function lienzo(M, maxit)
-        alto, ancho = size(M)
-        datos = join(vec(permutedims(M)), ",")
-        HTML("""<div class="viz"><canvas width="$ancho" height="$alto" style="width:100%;max-width:720px;height:auto;display:block;border-radius:14px;border:1px solid rgba(128,128,128,.35)"></canvas><script>
-            const cv = currentScript.parentElement.querySelector('canvas');
-            const W = $ancho, H = $alto, MAXIT = $maxit;
-            const d = [$datos];
-            function hsl(h, s, l) {
-              const a = s * Math.min(l, 1 - l);
-              const f = n => { const k = (n + h / 30) % 12; return l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1)); };
-              return [f(0) * 255, f(8) * 255, f(4) * 255];
-            }
-            const ctx = cv.getContext('2d');
-            const img = ctx.createImageData(W, H);
-            for (let i = 0; i < d.length; i++) {
-              let rgb = [8, 8, 20];
-              if (d[i] < MAXIT) {
-                const t = Math.sqrt(d[i] / MAXIT);
-                rgb = hsl((250 + 330 * t) % 360, 0.85, 0.2 + 0.5 * t);
-              }
-              img.data[4 * i] = rgb[0];
-              img.data[4 * i + 1] = rgb[1];
-              img.data[4 * i + 2] = rgb[2];
-              img.data[4 * i + 3] = 255;
-            }
-            ctx.putImageData(img, 0, 0);
-        </script></div>""")
-    end
-
-    # Evalúa una función f sobre una cuadrícula de números complejos
-    function mapa(f, centro, ancho_region; ancho = 240, alto = 160)
-        alto_region = ancho_region * alto / ancho
-        xs = range(real(centro) - ancho_region / 2, real(centro) + ancho_region / 2, length = ancho)
-        ys = range(imag(centro) + alto_region / 2, imag(centro) - alto_region / 2, length = alto)
-        [f(complex(x, y)) for y in ys, x in xs]
-    end
-end;
-
-# ╔═╡ d0000001-0000-5000-8000-000000000007
+# ╔═╡ 7643af80-dca8-5387-9190-1582621bb73f
 md"""
 $(kicker("00 · Antes de empezar"))
 
-# Cómo funciona este cuaderno
+# Cómo estudiar este cuaderno
 
-Este cuaderno va **de menos a más**. Empieza despacio, con ideas pequeñas explicadas con calma, y cada nivel sube un peldaño hasta que dibujes fractales y simules una partícula cuántica. Si algo no queda claro a la primera, es normal: lo importante reaparece más adelante desde otro ángulo, y ahí se acomoda.
-
-Todas las secciones siguen el mismo camino:
+No necesitas saber programar. Necesitas curiosidad y ganas de experimentar. **Todas las secciones siguen el mismo camino**, siempre en este orden:
 
 | Paso | Qué haces |
 |:-----|:----------|
-| **① La idea** | Una explicación corta, con una analogía |
-| **② Pruébalo** | Ejecutas o mueves algo y *ves* qué pasa; a veces primero predices |
-| **③ Comprueba** | Una pregunta rápida con retroalimentación inmediata |
-| **📌 En resumen** | Tres líneas para fijar lo importante |
+| **① La idea** | Lees una explicación corta, con una analogía |
+| **② Pruébalo** | Ejecutas el código; a veces primero **predices** qué pasará |
+| **③ Comprueba** | Respondes una pregunta rápida y recibes retroalimentación |
+| **📌 En resumen** | Repasas lo importante en tres líneas |
 
-Además encontrarás dos recuadros desplegables: **⚠️ Ojo** (un error típico de principiantes) y **🔭 Zoom** (la matemática de fondo, opcional, para cuando quieras ir más profundo).
+Cuando veas **⚠️ Ojo**, es un error típico de principiantes: ábrelo si quieres evitarlo.
 
-!!! info "Cómo usar los controles"
-    Los deslizadores, cuadros de texto y casillas son **interactivos**: muévelos y las celdas que dependen de ellos se recalculan solas. Esa es la gran idea de Pluto.
+!!! info "Regla de oro"
+    Equivocarte es parte del método. Un error en Julia no rompe nada: te explica qué pasó. Más adelante dedicaremos una sección completa a leerlos sin miedo.
 
 !!! tip "Atajos útiles de Pluto"
     `Shift + Enter` ejecuta la celda · `Ctrl + S` ejecuta todas las celdas pendientes · el panel **Documentación en vivo** (abajo a la derecha) explica cualquier función: escribe `?println` en una celda.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000008
+# ╔═╡ 60a63814-83b0-5041-9920-41b686892ac3
 md"""
 $(kicker("01 · Primeros pasos"))
 
 # Tu primer programa
 
-Dificultad $(nivel(1))
-
 !!! tip "🎯 Al terminar sabrás"
     - Ejecutar una celda de código.
     - Mostrar un mensaje con `println`.
-    - Ver cómo Pluto recalcula todo lo que depende de un dato.
+    - Modificar el código y ver el resultado al instante.
 
-**① La idea.** Un programa es una lista de instrucciones **exactas**, como una receta de cocina. La dificultad nunca está en entender una instrucción sola, sino en ser preciso: el computador hace *exactamente* lo que escribes, ni más ni menos. `println` (de *print line*, "imprimir línea") significa *muestra esto en pantalla*.
+**① La idea.** un programa es una lista de instrucciones para el computador, como una receta de cocina. `println` (de *print line*, "imprimir línea") es la instrucción *muestra esto en pantalla*.
 
 **② Pruébalo.** Ejecuta la celda siguiente con `Shift + Enter`.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000009
+# ╔═╡ b8299810-2e68-5bbc-b601-0ec20d0b6fa4
 println("¡Hola, mundo!")
 
-# ╔═╡ d0000001-0000-5000-8000-000000000010
+# ╔═╡ f7565e0f-0f48-5b95-80e5-d5a77dd6774a
 md"""
 !!! tip "Tu turno"
     Cambia el mensaje dentro de las comillas y vuelve a ejecutar la celda.
 
-Ahora algo **interactivo**: escribe tu nombre y la celda de abajo reacciona sola. Cuando cambia un dato, todo lo que depende de él se recalcula.
+Ahora algo **interactivo**: escribe tu nombre y la celda de abajo reacciona sola. Esa es la gran idea de Pluto: cuando cambia un dato, todo lo que depende de él se recalcula.
 
 Tu nombre: $(@bind nombre campo_texto("mundo"))
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000011
+# ╔═╡ af8c87a7-b6a4-5d5b-9827-b71678bf9a14
 md"### ¡Hola, **$(nombre)**! 👋"
 
-# ╔═╡ d0000001-0000-5000-8000-000000000012
+# ╔═╡ b53c27b3-e2d1-5b0c-b0a8-baf8fa8b1a73
 md"""
-**③ Comprueba.** ¿Qué hace `println("Hola")`?
+**③ Comprueba.** ¿qué hace `println("Hola")`?
 
 $(@bind q_print opciones([
     "Guarda la palabra Hola dentro de una variable",
@@ -527,32 +392,30 @@ $(@bind q_print opciones([
 ]))
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000013
+# ╔═╡ aa47e838-7cee-5512-9c92-ecd8d9729e99
 corregir(q_print,
     "Muestra Hola en pantalla y salta de línea",
     "`println` solo **muestra** un valor; no lo guarda ni lo calcula.",
     "Piensa en el nombre: *print line* = imprimir una línea. ¿Guarda algo o solo muestra?")
 
-# ╔═╡ d0000001-0000-5000-8000-000000000014
+# ╔═╡ 3562d3cf-62bc-5e00-8489-02af1cf6a5f5
 md"""
 !!! info "📌 En resumen"
-    - Un programa es una lista de instrucciones exactas.
+    - Un programa es una lista de instrucciones.
     - `println("texto")` muestra texto en pantalla.
     - En Pluto, al cambiar un dato se actualizan las celdas que dependen de él.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000015
+# ╔═╡ 94145ffa-604b-5efb-9dc1-883cad451383
 md"""
 $(kicker("02 · Números"))
 
 # Operaciones básicas
 
-Dificultad $(nivel(1))
-
 !!! tip "🎯 Al terminar sabrás"
     - Usar los operadores aritméticos de Julia.
     - Distinguir la división `/` de la división entera `÷`.
-    - Combinar texto y cálculos.
+    - Combinar texto y cálculos con interpolación.
 
 **① La idea.** Julia es, entre otras cosas, una calculadora muy potente. Los símbolos son los que ya conoces, con un par de detalles:
 
@@ -567,7 +430,7 @@ Dificultad $(nivel(1))
 | `%` | residuo (lo que sobra) | `7 % 2` |
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000016
+# ╔═╡ ea33082a-fbff-5b3c-abbc-e1c377fec7cc
 begin
     suma = 2 + 3
     resta = 10 - 4
@@ -577,7 +440,7 @@ begin
     (; suma, resta, producto, division, potencia)
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000017
+# ╔═╡ dba93151-8cb2-5453-9843-d35cb39bb17b
 md"""
 !!! hint "🤔 Predice antes de ejecutar"
     Reparte 7 galletas entre 2 personas. ¿Qué crees que dará `7 / 2`? ¿Y `7 ÷ 2`? ¿Cuántas galletas sobran con `7 % 2`?
@@ -585,36 +448,39 @@ md"""
 $(plegable("Ver respuesta", md"`7 / 2` da `3.5` · `7 ÷ 2` da `3` (galletas enteras por persona) · `7 % 2` da `1` (la galleta que sobra)."))
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000018
+# ╔═╡ 58859913-ec90-575c-9eb0-03e1795a2efc
 (; dividir = 7 / 2, entera = 7 ÷ 2, sobra = 7 % 2)
 
-# ╔═╡ d0000001-0000-5000-8000-000000000019
-md"""
-$(plegable("⚠️ Ojo: un error muy común", md"Creer que `20 / 5` da `4`. En Julia da `4.0`: el operador `/` **siempre** devuelve un decimal, aunque el resultado sea exacto. Si quieres un entero, usa `÷`."))
+# ╔═╡ ae70e42c-cd3b-5c58-8761-68e20feed419
+plegable("⚠️ Ojo: un error muy común", md"Creer que `20 / 5` da `4`. En Julia da `4.0`: el operador `/` **siempre** devuelve un decimal, aunque el resultado sea exacto. Si quieres un entero, usa `÷`.")
 
-Para mezclar texto y cálculos, `println` acepta varios valores, o puedes **interpolar** un cálculo dentro del texto escribiendo un signo de dólar seguido de paréntesis.
+# ╔═╡ 2c15e65a-9c85-524d-a5a6-45719b68ab8f
+md"""
+### Mostrar mensajes con cálculos
+
+Las cadenas de texto van entre comillas dobles. Puedes combinar texto y cálculos con `println`, o **interpolar** un cálculo dentro del texto escribiendo un signo de dólar seguido de paréntesis.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000020
+# ╔═╡ 2837038d-94a7-5881-8f13-243480c3a57f
 begin
     println("La suma de 2 + 3 es ", 2 + 3)
     println("La potencia de 2^8 es ", 2^8)
     println("Con interpolación: 7 * 6 = $(7 * 6)")
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000021
+# ╔═╡ 409db08a-2289-5729-a1b2-201e552f400f
 md"""
-**③ Comprueba.** ¿Qué resultado da `7 / 2` en Julia?
+**③ Comprueba.** ¿qué resultado da `7 / 2` en Julia?
 
 $(@bind q_div opciones(["3", "3.5", "3.0"]))
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000022
+# ╔═╡ f5162cbe-a684-5fa2-a14a-705d3d60689a
 corregir(q_div, "3.5",
     "Exacto: `/` es la división \"normal\" y siempre devuelve un decimal.",
     "`3` sería la división entera (`÷`). Recuerda que `/` conserva los decimales.")
 
-# ╔═╡ d0000001-0000-5000-8000-000000000023
+# ╔═╡ 3829a7ae-2729-58f0-a93a-b95a6a0e5746
 md"""
 !!! info "📌 En resumen"
     - `+ - * / ^` funcionan como esperas; `/` siempre da decimal.
@@ -622,26 +488,24 @@ md"""
     - Dentro de un texto, un cálculo se inserta con interpolación.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000024
+# ╔═╡ 1888f291-7b93-5987-9759-01bf2da6b37f
 md"""
 $(kicker("03 · Variables"))
 
 # Variables y nombres
-
-Dificultad $(nivel(1))
 
 !!! tip "🎯 Al terminar sabrás"
     - Crear variables con `=`.
     - Explicar qué es realmente una variable.
     - Evitar la confusión entre copiar y apuntar.
 
-**① La idea.** Una variable **no es una caja** que guarda cosas; es una **etiqueta** pegada a un valor. Así lo define el [manual oficial](https://docs.julialang.org/en/v1/manual/variables/): *un nombre asociado (enlazado) a un valor*. Puedes pegar varias etiquetas al mismo objeto, o mover una etiqueta a otro.
+**① La idea.** una variable **no es una caja** que guarda cosas; es una **etiqueta** pegada a un valor. Así lo define el [manual oficial](https://docs.julialang.org/en/v1/manual/variables/): *un nombre asociado (enlazado) a un valor*. Puedes pegar varias etiquetas al mismo objeto, o mover una etiqueta a otro.
 
 !!! info "Reglas y convenciones"
     Los nombres distinguen mayúsculas de minúsculas, aceptan Unicode (`δ`, `α`) y solo están prohibidas las palabras reservadas, como `else` o `try`. La convención es escribir los nombres en minúsculas, por ejemplo `velocidad_luz`. Para números grandes puedes usar guiones bajos: `1_000_000`.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000025
+# ╔═╡ 835706bc-afb9-52fb-800e-aed49f01ec0b
 begin
     edad = 25
     precio = 69.2
@@ -651,9 +515,9 @@ begin
     (; edad, precio, poblacion, velocidad_luz, δ)
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000026
+# ╔═╡ 1eed76d0-a68f-558c-b924-c4bc914341fe
 md"""
-**③ Comprueba.** Observa este código (no hace falta ejecutarlo).
+**③ Comprueba.** observa este código (no hace falta ejecutarlo).
 
 ```julia
 x = 5
@@ -666,19 +530,19 @@ x = 10
 $(@bind q_var opciones(["5", "10", "15"]))
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000027
+# ╔═╡ 5cabd81d-5dfc-5ef5-a136-220e06791a33
 corregir(q_var, "5",
     "`y = x` pegó la etiqueta `y` al valor `5`. Después, `x = 10` movió solo la etiqueta `x`; `y` no se enteró.",
     "Imagina etiquetas: `y` quedó pegada al valor que tenía `x` en ese momento. ¿Cambia `y` cuando mueves la etiqueta `x`?")
 
-# ╔═╡ d0000001-0000-5000-8000-000000000028
+# ╔═╡ c7633dd6-c0b3-59ca-8a12-144537ac258c
 md"""
 ### Cuando dos etiquetas apuntan al mismo objeto
 
 Con valores simples como números esto no se nota. Con un **arreglo** (una lista de valores) sí. Predice antes de ejecutar: si cambias `original[1]`, ¿cambia también `alias[1]`?
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000029
+# ╔═╡ 17da2c96-c7ca-5dcd-82ea-3e81922bec2d
 begin
     original = [1, 2, 3]
     alias = original        # dos nombres, un solo arreglo
@@ -686,47 +550,47 @@ begin
     (; original, alias)
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000030
-md"""
-$(plegable("⚠️ Ojo: un error muy común", md"Asignar `alias = original` **no copia** el arreglo: ambos nombres apuntan al mismo objeto, y el manual oficial lo muestra con este mismo ejemplo. Si necesitas una copia independiente, usa `copy(original)`."))
+# ╔═╡ 7389b706-bbdd-5efd-bc9e-9a4ad01e880b
+plegable("⚠️ Ojo: un error muy común", md"Asignar `alias = original` **no copia** el arreglo: ambos nombres apuntan al mismo objeto, y el manual oficial lo muestra con este mismo ejemplo. Si necesitas una copia independiente, usa `copy(original)`.")
 
+# ╔═╡ 51c69ac1-587e-53e9-86a2-e043a686d88e
+md"""
 !!! info "📌 En resumen"
     - Una variable es una etiqueta pegada a un valor.
     - `=` asigna; volver a asignar mueve la etiqueta.
     - Con arreglos, dos nombres pueden apuntar al mismo objeto; usa `copy` para separarlos.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000031
+# ╔═╡ b0110001-b108-5e89-99bd-9d14e02002f4
 md"""
 $(kicker("04 · Tipos de datos"))
 
 # ¿Qué tipo de dato estoy usando?
-
-Dificultad $(nivel(2))
 
 !!! tip "🎯 Al terminar sabrás"
     - Usar `typeof` para averiguar el tipo de un valor.
     - Distinguir `Int64`, `Float64` y `String`.
     - Entender que los tipos forman una jerarquía.
 
-**① La idea.** En una hoja de cálculo no es lo mismo una celda de texto que una de número. Julia también distingue **tipos**, y eso le permite hacer cada operación bien y rápido. Predice el tipo de cada valor y luego ejecuta:
+**① La idea.** en una hoja de cálculo no es lo mismo una celda de texto que una de número. Julia también distingue **tipos**, y eso le permite hacer cada operación bien y rápido. Predice el tipo de cada valor y luego ejecuta:
 
 $(plegable("Ver pistas", md"`2` es un entero · `69.2` tiene punto decimal · lo que va entre comillas es texto · `true` es un valor lógico · `'j'` (comillas simples) es un solo carácter · `1 // 2` es una fracción exacta."))
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000032
+# ╔═╡ 20be8be1-e097-5d11-b725-73aca16ea3a1
 [valor => typeof(valor) for valor in (2, 69.2, "Hello, World!", true, 'j', 1 // 2)]
 
-# ╔═╡ d0000001-0000-5000-8000-000000000033
-md"""
-$(plegable("⚠️ Ojo: un error muy común", md"`2` y `2.0` **no son el mismo tipo** (`Int64` y `Float64`). Y un número escrito entre comillas es **texto**, no un número: por eso sumarle un entero produce un error (lo verás en la sección 05)."))
+# ╔═╡ 9e0c600f-901c-513a-a583-bd5e0c428bd7
+plegable("⚠️ Ojo: un error muy común", md"`2` y `2.0` **no son el mismo tipo** (`Int64` y `Float64`). Y un número escrito entre comillas es **texto**, no un número: por eso sumarle un entero produce un error (lo verás en la sección 05).")
 
+# ╔═╡ 266439b7-3d74-5daf-b795-4624e293fbf0
+md"""
 ### Los tipos forman un árbol
 
-Todo tipo tiene un "padre", como un árbol genealógico. `Int64` es un `Signed`, que es un `Integer`, que es un `Real`, que es un `Number`, y todo desciende de `Any`. Esa jerarquía es la base del *multiple dispatch* que usarás en el nivel 5.
+Todo tipo tiene un "padre", como un árbol genealógico. `Int64` es un `Signed`, que es un `Integer`, que es un `Real`, que es un `Number`, y todo desciende de `Any`. Esa jerarquía es la base del *multiple dispatch* que verás más adelante.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000034
+# ╔═╡ 2ecbe4cb-28d3-5885-9572-2db7fbdbe1f1
 begin
     function ancestros(T)
         cadena = Any[T]
@@ -740,19 +604,19 @@ begin
     (; cadena = ancestros(Int64), subtipos_de_Integer = subtypes(Integer))
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000035
+# ╔═╡ 21a97c4b-89da-5617-ad50-7f4c0b60f978
 md"""
-**③ Comprueba.** ¿Qué devuelve `typeof(3 / 1)`?
+**③ Comprueba.** ¿qué devuelve `typeof(3 / 1)`?
 
 $(@bind q_tipo opciones(["Int64", "Float64", "String"]))
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000036
+# ╔═╡ d92807ee-be04-52bc-af11-e209b0829ec2
 corregir(q_tipo, "Float64",
     "Aunque `3 / 1` valga exactamente 3, el operador `/` siempre devuelve un decimal (`Float64`).",
     "Recuerda la sección de operaciones: ¿qué tipo de resultado devuelve siempre el operador `/`?")
 
-# ╔═╡ d0000001-0000-5000-8000-000000000037
+# ╔═╡ 77352daf-5f47-5aeb-b885-369c1c1dd974
 md"""
 !!! info "📌 En resumen"
     - `typeof(x)` te dice el tipo de `x`.
@@ -760,19 +624,17 @@ md"""
     - Los tipos forman una jerarquía: `Int64` → `Signed` → `Integer` → `Real` → `Number` → `Any`.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000038
+# ╔═╡ a50811ad-b346-5c45-a21f-2341c312827e
 md"""
 $(kicker("05 · Errores"))
 
 # Leer errores sin miedo
 
-Dificultad $(nivel(2))
-
 !!! tip "🎯 Al terminar sabrás"
     - Reconocer las partes de un mensaje de error.
     - Usar el mensaje para encontrar qué falló.
 
-**① La idea.** Un error no es un fracaso, es el computador diciéndote *"no entendí esta instrucción, y por esto"*. Todo mensaje tiene la misma estructura:
+**① La idea.** un error no es un fracaso, es el computador diciéndote *"no entendí esta instrucción, y por esto"*. Todo mensaje tiene la misma estructura:
 
 | Parte | Qué te dice |
 |:------|:------------|
@@ -783,7 +645,7 @@ Dificultad $(nivel(2))
 Aquí provocamos tres errores a propósito, pero capturados para que el cuaderno no se detenga. Lee cada uno.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000039
+# ╔═╡ 0cd7a13b-c8b1-5d11-86ec-c18991ea11a3
 begin
     function capturar(f)
         try
@@ -803,9 +665,9 @@ begin
     Text(join(["▸ $codigo\n$mensaje" for (codigo, mensaje) in errores], "\n\n"))
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000040
+# ╔═╡ 3d708ccb-ab98-5955-98fa-0197cc1569db
 md"""
-**③ Comprueba.** Ves `MethodError: no method matching +(::String, ::Int64)`. ¿Qué significa?
+**③ Comprueba.** ves `MethodError: no method matching +(::String, ::Int64)`. ¿Qué significa?
 
 $(@bind q_error opciones([
     "Julia no sabe sumar un texto con un entero",
@@ -814,39 +676,99 @@ $(@bind q_error opciones([
 ]))
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000041
+# ╔═╡ 587dc61e-245c-5d9d-b8be-b0fbcb901795
 corregir(q_error, "Julia no sabe sumar un texto con un entero",
     "Lee los tipos entre paréntesis: `::String` y `::Int64`. Para esa combinación no existe método de `+`.",
     "Fíjate en lo que aparece después de `+(`: son los **tipos** de los argumentos que no se pudieron combinar.")
 
-# ╔═╡ d0000001-0000-5000-8000-000000000042
+# ╔═╡ 0b25b513-f1d0-5b1e-8ea8-9d29057b1e95
 md"""
 !!! info "📌 En resumen"
     - Empieza siempre por la **primera línea** del error: nombre y descripción.
     - Los tipos que aparecen como `::String` o `::Int64` suelen darte la clave.
     - Un error es información, no un castigo.
-
-!!! tip "🚀 Subimos de nivel"
-    Ya tienes las herramientas básicas. A partir de aquí dejamos las palabras y empezamos a **dibujar**.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000043
+# ╔═╡ 614639aa-b65a-5b66-8cd4-989a6592ffe2
 md"""
-$(kicker("06 · Funciones"))
+$(kicker("06 · Conoce Julia"))
 
-# Funciones: máquinas que transforman
+# ¿Por qué Julia?
 
-Dificultad $(nivel(2))
+**① La idea.** Julia nació para que los científicos escribieran código fácil de leer **y** rápido, sin tener que reescribirlo en otro lenguaje para que funcione bien.
+"""
+
+# ╔═╡ 7340c7c8-d62b-5b96-b41b-0d935d75f95c
+html"""
+<div class="cards">
+  <div class="card red"><b>Rendimiento</b>Compila el código justo a tiempo (JIT) para ejecutar cálculos con velocidad cercana a lenguajes como C.</div>
+  <div class="card green"><b>Multiple dispatch</b>Elige qué método ejecutar según los tipos de <i>todos</i> los argumentos.</div>
+  <div class="card purple"><b>Tipado dinámico</b>Puedes programar sin declarar el tipo de cada variable.</div>
+  <div class="card blue"><b>Ecosistema</b>Paquetes para ciencia de datos, simulación, gráficos, IA y más.</div>
+</div>
+"""
+
+# ╔═╡ 36851c36-d771-5578-bea7-d3db96a49ae6
+md"""
+Documentación: [Sitio oficial de Julia](https://julialang.org/) · [Manual del lenguaje](https://docs.julialang.org/en/v1/)
+
+### Multiple dispatch en acción
+
+**① La analogía.** el verbo *abrir* significa cosas distintas según lo que abras: una puerta, un archivo o una cuenta bancaria. Tú no cambias de verbo; el contexto decide qué acción se hace. En Julia, una misma función (`describir`) puede tener varios **métodos**, y Julia elige el correcto según el tipo de los argumentos.
+"""
+
+# ╔═╡ 61bf1812-e29f-5782-acfa-4bdb73a23b82
+begin
+    describir(x::Integer) = "Entero: $x"
+    describir(x::AbstractFloat) = "Decimal: $x"
+    describir(x::AbstractString) = "Texto: \"$x\""
+
+    [describir(7), describir(3.14), describir("Julia")]
+end
+
+# ╔═╡ 5699d052-3f84-5300-a26c-7342b576ed22
+methods(describir)
+
+# ╔═╡ ed3c9868-5d78-53a5-b4ba-590f3248d1e4
+md"""
+**③ Comprueba.** en multiple dispatch, ¿qué decide qué método se ejecuta?
+
+$(@bind q_dispatch opciones([
+    "El nombre del archivo donde está la función",
+    "Los tipos de los argumentos con que la llamas",
+    "El orden en que escribiste los métodos",
+]))
+"""
+
+# ╔═╡ e9c654a4-28c4-57c8-ab94-ea35dd829a61
+corregir(q_dispatch, "Los tipos de los argumentos con que la llamas",
+    "Por eso `describir(7)` y `describir(\"Julia\")` ejecutan métodos distintos, aunque la función se llame igual.",
+    "Mira la celda anterior: ¿qué cambia entre `describir(7)` y `describir(3.14)`?")
+
+# ╔═╡ d194f6c3-45af-5f67-8f1f-f61c247ab9ff
+md"""
+!!! info "📌 En resumen"
+    - Julia combina facilidad de uso con velocidad.
+    - Una función puede tener muchos métodos; Julia elige según los **tipos** de los argumentos.
+"""
+
+# ╔═╡ c96cffb8-32ee-5bb1-82a9-a4b1c9e1fcba
+md"""
+$(kicker("07 · Programar"))
+
+# Funciones y control de flujo
 
 !!! tip "🎯 Al terminar sabrás"
-    - Definir tus propias funciones, en forma larga y corta.
-    - Dibujar una onda y controlarla con parámetros.
-    - Entender el punto `.` que aplica una función a toda una lista.
+    - Definir tus propias funciones.
+    - Tomar decisiones con `if` y repetir con comprensiones.
+    - Aplicar una operación a toda una lista con el punto `.`.
 
-**① La idea.** Una función es una **máquina**: entra un valor, sale otro. Tú ya la conoces de matemáticas: `f(x) = x²` toma un número y devuelve su cuadrado. En Julia se escribe casi igual, y hay dos formas equivalentes:
+**① La analogía.** una función es una **máquina**: le das ingredientes (argumentos), hace su trabajo y te devuelve un resultado. Un programa suele combinar *entrada → procesamiento → salida*, y el **control de flujo** es lo que decide el camino: ¿esto o aquello? ¿repetir cuántas veces?
+
+Hay dos formas equivalentes de escribir una función:
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000044
+# ╔═╡ 0113c173-b11c-5c64-879e-6c9d5c8aa501
 begin
     # Forma larga
     function cuadrado(x)
@@ -856,484 +778,112 @@ begin
     # Forma corta (ideal para una sola expresión)
     hipotenusa(cateto1, cateto2) = sqrt(cateto1^2 + cateto2^2)
 
-    # Las funciones se pueden componer con ∘ (escribe \circ y Tab)
-    (; cuadrado_de_9 = cuadrado(9),
-       hipotenusa_3_4 = hipotenusa(3, 4),
-       compuesta = (sqrt ∘ abs)(-16))
+    (; cuadrado_de_9 = cuadrado(9), hipotenusa_3_4 = hipotenusa(3, 4))
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000045
+# ╔═╡ 7356fdb5-ee15-5290-8199-04f3bb408021
 md"""
-**② Pruébalo.** Una **onda** es una función que se repite. La más famosa es `A·sen(ω·x + φ)`: la **amplitud** `A` dice qué tan alta es, la **frecuencia** `ω` qué tan apretada, y la **fase** `φ` cuánto se desplaza. Mueve los tres controles y mira la gráfica.
+### Condicionales y bucles
 
-**Amplitud A** = $(@bind amplitud deslizador(0.5:0.5:3, default = 1.0))
+Los bloques de Julia siempre terminan con `end`. Un **condicional** (`if`) elige un camino; una **comprensión** (`[... for ... in ...]`) repite una operación para cada elemento; y el punto `.` aplica una función **a cada elemento** de un arreglo (*broadcasting*).
 
-**Frecuencia ω** = $(@bind frecuencia deslizador(1:8, default = 2))
-
-**Fase φ** = $(@bind fase deslizador(0.0:0.25:6.0, default = 0.0))
+!!! hint "🤔 Predice antes de ejecutar"
+    ¿Qué clasificación dará `clasificar(-5)`? ¿Y `clasificar(0)`? ¿Cuántos elementos tendrá `cuadrados`?
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000046
+# ╔═╡ 3a4eeb0c-e89a-590c-bfef-9800f10925b2
 begin
-    onda_seno(x, A, ω, φ) = A * sin(ω * x + φ)
-
-    xs_onda = range(0, 2π, length = 300)
-    ys_onda = onda_seno.(xs_onda, Float64(amplitud), Float64(frecuencia), Float64(fase))
-
-    grafica(xs_onda, [ys_onda]; etiquetas = ["A·sen(ω·x + φ)"])
-end
-
-# ╔═╡ d0000001-0000-5000-8000-000000000047
-md"""
-Mira la línea que dice `onda_seno.(xs_onda, ...)`. El **punto** después del nombre le dice a Julia *aplica esto a cada elemento*. El arreglo `xs_onda` tiene 300 puntos y se evaluó 300 veces con una sola instrucción. A esto se le llama *broadcasting*.
-
-!!! hint "🤔 Predice antes de mover"
-    ¿Qué le pasa a la onda si subes la frecuencia de 2 a 6? ¿Y si cambias la fase en `1.5`?
-
-$(plegable("Ver respuesta", md"Más frecuencia: la onda se **comprime** y entran más ciclos en el mismo intervalo. Más fase: toda la onda se **desplaza** hacia la izquierda sin cambiar de forma."))
-
-$(plegable("⚠️ Ojo: un error muy común", md"Olvidar el punto. `sin(xs_onda)` da un error, porque `sin` espera un número y no una lista. Con el punto, `sin.(xs_onda)` aplica `sin` a cada elemento."))
-
-**③ Comprueba.** ¿Qué hace el punto en `onda_seno.(xs_onda, ...)`?
-
-$(@bind q_punto opciones([
-    "Aplica la función a cada elemento del arreglo",
-    "Multiplica el resultado por un punto decimal",
-    "No hace nada, es solo decoración",
-]))
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000048
-corregir(q_punto, "Aplica la función a cada elemento del arreglo",
-    "Es el *broadcasting*: una instrucción, muchas evaluaciones. Sirve con cualquier función, incluso las tuyas.",
-    "Piensa en lo que hizo la gráfica: una sola línea evaluó la función en 300 puntos distintos.")
-
-# ╔═╡ d0000001-0000-5000-8000-000000000049
-md"""
-!!! info "📌 En resumen"
-    - Una función recibe argumentos y devuelve un resultado: `f(x) = ...`.
-    - `f.(lista)` aplica `f` a cada elemento de una lista.
-    - Una onda `A·sen(ω·x + φ)` se controla con tres parámetros.
-
-$(plegable("🔭 Zoom: funciones como morfismos", md"`(sqrt ∘ abs)(-16)` es la composición `sqrt(abs(-16))`. En Julia, `∘` compone funciones igual que en matemáticas: asociativa y con identidad (`identity`). Los tipos de entrada y salida desempeñan el papel de objetos y las funciones el de flechas. No es una categoría en sentido estricto, pero el vocabulario ayuda y lo retomaremos en el nivel 5."))
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000050
-md"""
-$(kicker("07 · Arreglos y ondas"))
-
-# Arreglos y series de Fourier
-
-Dificultad $(nivel(3))
-
-!!! tip "🎯 Al terminar sabrás"
-    - Crear arreglos y operar con ellos.
-    - Usar comprensiones para construir listas.
-    - Aproximar una onda cuadrada sumando senos.
-
-**① La idea.** Un **arreglo** es una lista ordenada de valores. En ciencia casi todo es un arreglo: una señal de audio, una imagen, el estado de un sistema. Julia está hecha para trabajar con ellos de manera natural, y los índices empiezan en **1**.
-
-**② Pruébalo.**
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000051
-begin
-    lista = [1, 2, 3, 4, 5]
-    (; lista,
-       cuadrados = lista .^ 2,
-       con_comprension = [i^2 for i in lista],
-       suma_de_todos = sum(lista),
-       primero = lista[1],
-       ultimo = lista[end])
-end
-
-# ╔═╡ d0000001-0000-5000-8000-000000000052
-md"""
-Ahora una idea de Joseph Fourier que cambió la ciencia: **casi cualquier onda se arma sumando senos**. Una onda cuadrada (un interruptor que salta entre -1 y 1) se aproxima con
-
-`(4/π) · [ sen(x) + sen(3x)/3 + sen(5x)/5 + ... ]`
-
-Sube el número de armónicos y mira cómo los senos suaves van construyendo esquinas.
-
-**Armónicos** = $(@bind n_armonicos deslizador(1:40, default = 3))
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000053
-begin
-    suma_parcial(x, N) = (4 / π) * sum(sin((2k - 1) * x) / (2k - 1) for k in 1:N)
-    xs_f = range(-π, π, length = 600)
-    cuadrada = sign.(sin.(xs_f))
-end;
-
-# ╔═╡ d0000001-0000-5000-8000-000000000054
-begin
-    aprox = suma_parcial.(xs_f, Int(n_armonicos))
-    grafica(xs_f, [aprox, cuadrada];
-        etiquetas = ["suma de $(Int(n_armonicos)) armónicos", "onda cuadrada ideal"],
-        punteadas = [2])
-end
-
-# ╔═╡ d0000001-0000-5000-8000-000000000055
-(; armonicos = Int(n_armonicos),
-   maximo_alcanzado = round(maximum(aprox), digits = 4),
-   valor_ideal = 1.0)
-
-# ╔═╡ d0000001-0000-5000-8000-000000000056
-md"""
-**③ Comprueba.** Con 40 armónicos, ¿qué pasa con el "pico" que sobresale justo al lado del salto?
-
-$(@bind q_gibbs opciones([
-    "Desaparece por completo",
-    "No desaparece: se queda en torno a 1.18, aunque se hace más estrecho",
-    "Crece sin límite",
-]))
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000057
-corregir(q_gibbs, "No desaparece: se queda en torno a 1.18, aunque se hace más estrecho",
-    "Es el **fenómeno de Gibbs**: la altura del sobrepico converge a un valor fijo, cerca del 9 % del salto, aunque su ancho tienda a cero.",
-    "Mira el número `maximo_alcanzado` mientras subes los armónicos. ¿Sigue cambiando o se estabiliza?")
-
-# ╔═╡ d0000001-0000-5000-8000-000000000058
-md"""
-!!! info "📌 En resumen"
-    - Un arreglo es una lista ordenada; `a[1]` es el primer elemento y `a[end]` el último.
-    - `[f(i) for i in lista]` construye una lista nueva (comprensión).
-    - Sumando senos se aproximan ondas complejas, pero en los saltos aparece el fenómeno de Gibbs.
-
-$(plegable("🔭 Zoom: convergencia de Fourier", md"La serie de Fourier de la onda cuadrada converge puntualmente a la función en los puntos de continuidad y a la media de los límites laterales en el salto, pero **no converge uniformemente**: por eso el sobrepico no se aplana. Su valor límite es `(2/π)·Si(π) ≈ 1.1790`, donde `Si` es la integral seno. En norma `L²`, en cambio, la convergencia sí ocurre."))
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000059
-md"""
-$(kicker("08 · Fractales"))
-
-# Bucles, condicionales y el conjunto de Mandelbrot
-
-Dificultad $(nivel(3))
-
-!!! tip "🎯 Al terminar sabrás"
-    - Escribir un bucle `for` con un `if` para decidir cuándo parar.
-    - Usar números complejos (`im`) en Julia.
-    - Explicar con tus palabras cómo se genera un fractal.
-
-**① La idea.** Un **bucle** repite una receta. Un **condicional** decide cuándo parar. Con solo esas dos piezas, y números complejos, se dibuja uno de los objetos más famosos de la matemática.
-
-Los complejos ya vienen en Julia: `1 + 2im` es 1 + 2i. La receta es: parte de `z = 0` y repite `z ← z² + c`. Si `|z|` se dispara hacia el infinito, el punto `c` **escapa**; si se queda acotado, **no escapa**. Pintamos cada punto `c` del plano según *cuántos pasos tarda en escapar*.
-
-**② Pruébalo.** Esta función cuenta los pasos. Fíjate en la estructura: un `for`, un `if` y un `return` que sale en cuanto se cumple la condición.
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000060
-begin
-    function tiempo_escape(z0, c, maxit)
-        z = z0
-        for n in 1:maxit
-            z = z^2 + c
-            if abs2(z) > 4          # |z| > 2: ya no hay vuelta atrás
-                return n
-            end
+    function clasificar(n)
+        if n < 0
+            "negativo"
+        elseif n == 0
+            "cero"
+        else
+            "positivo"
         end
-        return maxit                # nunca escapó en maxit pasos
     end
 
-    function trayectoria(c, pasos)
-        z = 0.0 + 0.0im
-        camino = ComplexF64[]
-        for _ in 1:pasos
-            z = z^2 + c
-            push!(camino, z)
-        end
-        camino
-    end
+    cuadrados = [i^2 for i in 1:10]          # comprensión de arreglos
+    raices = sqrt.(cuadrados)                # broadcasting
 
-    lugares = [
-        ("Vista completa", -0.5 + 0.0im),
-        ("Valle de los caballitos de mar", -0.7436 + 0.1318im),
-        ("Espiral", -0.7269 + 0.1889im),
-        ("Mini-Mandelbrot", -1.7499 + 0.0im),
-    ]
-
-    # |z| paso a paso: un c que no escapa se estabiliza; otro se dispara
-    (; no_escapa = round.(abs.(trayectoria(-0.4 + 0.0im, 8)), digits = 3),
-       escapa = round.(abs.(trayectoria(0.5 + 0.5im, 5)), digits = 3))
+    (; clasificacion = clasificar.([-5, 0, 7]), cuadrados, raices)
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000061
+# ╔═╡ 14f40fae-9e56-521a-83c1-a9f10c362c68
+plegable("⚠️ Ojo: un error muy común", md"Olvidar el `end` que cierra una función o un `if`. Si Pluto muestra un error de sintaxis, cuenta cuántos bloques abriste y cuántos `end` escribiste: deben coincidir.")
+
+# ╔═╡ 45b0d443-4bee-5d00-94c3-4d52e231656f
 md"""
-Fíjate en la diferencia: con `c = -0.4` el valor de `|z|` se estabiliza; con `c = 0.5 + 0.5im` se dispara. Ahora lo hacemos para **38 400 puntos a la vez**. Los píxeles negros son los que **no** escaparon. Pruébalo: sube el zoom y verás aparecer detalles nuevos sin fin.
+**③ Comprueba.** con la función `clasificar` de arriba, ¿qué devuelve `clasificar(0)`?
 
-**Iteraciones máximas** = $(@bind iteraciones deslizador(10:10:300, default = 60))
-
-**Zoom** (cada paso duplica el aumento) = $(@bind zoom deslizador(0:1:10, default = 0))
-
-**Lugar** = $(@bind centro_sel selector(first.(lugares)))
+$(@bind q_flujo opciones(["negativo", "cero", "positivo"]))
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000062
-begin
-    its_m = Int(iteraciones)
-    ancho_m = 3.0 / 2.0^Int(zoom)
-    M_mandel = mapa(c -> tiempo_escape(0.0im, c, its_m), Dict(lugares)[centro_sel], ancho_m)
-    lienzo(M_mandel, its_m)
-end
+# ╔═╡ 97197bc8-11c1-5a31-b8d0-59949b6263a7
+corregir(q_flujo, "cero",
+    "Se cumple `n == 0`, así que Julia entra en la segunda rama y devuelve \"cero\".",
+    "Recorre la función de arriba hacia abajo: `0 < 0` es falso, ¿qué pasa con `0 == 0`?")
 
-# ╔═╡ d0000001-0000-5000-8000-000000000063
-md"""
-$(plegable("⚠️ Ojo: un error muy común", md"Hacer mucho zoom y ver una mancha plana. No es un fallo: con más zoom hacen falta **más iteraciones** para distinguir los puntos cercanos a la frontera. Sube las iteraciones máximas y el detalle reaparece."))
-
-### El hermano del Mandelbrot: los conjuntos de Julia
-
-Aquí usamos la **misma** función `tiempo_escape`, pero cambiamos quién es la variable: ahora `c` es fijo (lo eliges tú) y cada píxel es el punto de partida `z₀`. Cada valor de `c` genera una figura distinta. Mueve los controles con suavidad.
-
-**Parte real de c** = $(@bind cr deslizador(-1.0:0.01:1.0, default = -0.8))
-
-**Parte imaginaria de c** = $(@bind ci deslizador(-1.0:0.01:1.0, default = 0.16))
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000064
-let
-    c = Float64(cr) + Float64(ci) * im
-    M = mapa(z -> tiempo_escape(z, c, 80), 0.0 + 0.0im, 3.2; ancho = 240, alto = 150)
-    lienzo(M, 80)
-end
-
-# ╔═╡ d0000001-0000-5000-8000-000000000065
-md"""
-!!! hint "🧩 Reto"
-    Busca valores de `c` donde la figura sea una sola pieza conexa y otros donde se rompa en "polvo". Compara con el Mandelbrot: ¿en qué zona del Mandelbrot está cada uno de esos `c`?
-
-**③ Comprueba.** En la imagen del Mandelbrot, ¿qué significa un píxel negro?
-
-$(@bind q_escape opciones([
-    "Que ese punto no escapó durante las iteraciones que probamos",
-    "Que el cálculo dio error",
-    "Que escapó muy rápido",
-]))
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000066
-corregir(q_escape, "Que ese punto no escapó durante las iteraciones que probamos",
-    "Los negros son los puntos que parecen pertenecer al conjunto. Solo parecen: con más iteraciones, alguno podría terminar escapando.",
-    "`tiempo_escape` devuelve `maxit` cuando el punto nunca superó `|z| > 2`, y ese caso se pinta de negro.")
-
-# ╔═╡ d0000001-0000-5000-8000-000000000067
+# ╔═╡ a7e6930f-f5bc-58f1-8483-fdd35800903c
 md"""
 !!! info "📌 En resumen"
-    - Un `for` repite y un `if` con `return` permite parar antes.
-    - Con la regla `z ← z² + c` y números complejos se genera el Mandelbrot.
-    - La misma función con otro rol para `c` y `z₀` produce los conjuntos de Julia.
-
-$(plegable("🔭 Zoom: qué es exactamente el conjunto de Mandelbrot", md"Es el conjunto de los `c ∈ ℂ` para los que la órbita de `0` bajo `z ↦ z² + c` permanece acotada. Si `|z_n| > 2` en algún paso, la órbita escapa a infinito; por eso ese criterio basta. El conjunto es **conexo** (Douady y Hubbard), y `c` pertenece a él si y solo si el conjunto de Julia `J_c` es conexo; si no, `J_c` es un polvo de Cantor. Su frontera tiene dimensión de Hausdorff 2 (Shishikura). Los píxeles negros son una aproximación: solo sabemos que no escaparon en `maxit` pasos."))
-
-!!! tip "🚀 Subimos de nivel"
-    Ya dominas bucles, arreglos y complejos. Ahora los usamos para algo más profundo: **la física cuántica**.
+    - Una función recibe argumentos y devuelve un resultado.
+    - `if / elseif / else` elige un camino; `[f(i) for i in 1:n]` repite; `f.(lista)` aplica `f` a cada elemento.
+    - Todo bloque abierto se cierra con `end`.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000068
+# ╔═╡ 631b9fde-c48e-5b12-850c-d74a37edfc14
 md"""
-$(kicker("09 · Función de onda"))
+$(kicker("08 · Laboratorio"))
 
-# Una partícula en una caja
+# Experimenta
 
-Dificultad $(nivel(4))
+Mueve los deslizadores y observa cómo se recalcula la celda de abajo. Piensa como científico: **cambia una cosa a la vez** y anota qué pasa.
 
-!!! tip "🎯 Al terminar sabrás"
-    - Calcular y graficar una función de onda cuántica con arreglos.
-    - Explicar qué mide `|ψ|²` y por qué algunos estados no se mueven.
-    - Ver cómo una mezcla de estados hace que la partícula "chapotee".
+**a** = $(@bind a deslizador(1:20, default = 12))
 
-**① La idea.** Imagina una partícula atrapada en una caja de ancho 1 (el pozo infinito). Su estado es una función `ψ(x)` con valores complejos; no es una probabilidad sino una **amplitud**. La probabilidad de encontrarla cerca de `x` es `|ψ(x)|²`.
-
-Los estados de energía definida son `ψₙ(x) = √2·sen(nπx)` con energía `Eₙ = n²π²/2` (en unidades con ħ = m = 1). Con el tiempo, cada estado solo gira su fase: `ψₙ(x, t) = ψₙ(x)·e^(-iEₙt)`.
-
-Si la partícula está en **un solo** estado, `|ψ|²` no cambia nunca (estado estacionario). Pero si **mezclas dos** estados, sus fases giran a ritmos distintos y la partícula se mueve de lado a lado. Vamos a verlo.
+**b** = $(@bind b deslizador(1:20, default = 4))
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000069
-begin
-    xs_caja = range(0, 1, length = 400)
-    dx_caja = step(xs_caja)
+# ╔═╡ a4e1e17c-31bb-59c4-9876-92af3c5ebdc5
+(; suma = a + b, producto = a * b, tipo_de_a = typeof(a))
 
-    ψ_n(n, x) = sqrt(2) * sin(n * π * x)
-    E_n(n) = (n * π)^2 / 2
-
-    # Estado mezcla de ψ_n1 y ψ_n2 en el tiempo t, normalizado numéricamente
-    function estado(n1, n2, m, t)
-        ψ = [ψ_n(n1, x) * cis(-E_n(n1) * t) + m * ψ_n(n2, x) * cis(-E_n(n2) * t) for x in xs_caja]
-        ρ = abs2.(ψ)
-        norma = sum(ρ) * dx_caja
-        ψ ./ sqrt(norma), ρ ./ norma
-    end
-end;
-
-# ╔═╡ d0000001-0000-5000-8000-000000000070
+# ╔═╡ 79430361-53a9-54ae-8fe8-8b2cd53173c2
 md"""
-**② Pruébalo.** Empieza con `n₁ = 1`, `n₂ = 2` y mezcla `1.0`. Avanza el tiempo despacio. Luego prueba mezcla `0.0` y compara.
-
-**Estado n₁** = $(@bind n1 deslizador(1:5, default = 1))
-
-**Estado n₂** = $(@bind n2 deslizador(1:5, default = 2))
-
-**Mezcla** (peso de n₂) = $(@bind mezcla deslizador(0.0:0.1:2.0, default = 1.0))
-
-**Tiempo t** = $(@bind tiempo deslizador(0.0:0.01:0.5, default = 0.0))
+!!! hint "🧩 Acertijo"
+    ¿Existe algún par de números enteros positivos `a` y `b` para los que **la suma sea igual al producto**? Búscalo con los deslizadores. La celda siguiente te avisará cuando lo encuentres.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000071
-begin
-    psi_t, rho_t = estado(Int(n1), Int(n2), Float64(mezcla), Float64(tiempo))
-    grafica(xs_caja, [real.(psi_t), imag.(psi_t), rho_t];
-        etiquetas = ["Re ψ", "Im ψ", "|ψ|²  probabilidad"],
-        relleno = 3)
+# ╔═╡ 9f5a015c-d1c6-5d7f-b167-0a2a87457214
+if a + b == a * b
+    aviso("correct", "¡Lo encontraste!", "Con `a = $a` y `b = $b`, la suma y el producto valen $(a + b). ¿Habrá otro par? Prueba a cambiar solo uno de los dos.")
+else
+    aviso("info", "Sigue buscando", "Ahora la suma es $(a + b) y el producto es $(a * b). Fíjate en cuál crece más rápido al subir los números.")
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000072
-(; posicion_media = round(sum(xs_caja .* rho_t) * dx_caja, digits = 3),
-   energia_n1 = round(E_n(Int(n1)), digits = 2),
-   energia_n2 = round(E_n(Int(n2)), digits = 2))
-
-# ╔═╡ d0000001-0000-5000-8000-000000000073
+# ╔═╡ de33c469-5b0b-5694-9eb9-7dc5e051d6cb
 md"""
-!!! hint "🤔 Qué observar"
-    La `posicion_media` oscila cuando mezclas dos estados distintos y se queda fija cuando no. Prueba `n₁ = 1`, `n₂ = 3` y compara la rapidez del vaivén con la de `n₁ = 1`, `n₂ = 2`.
-
-**③ Comprueba.** Si pones la mezcla en `0.0` (un solo estado) y avanzas el tiempo, ¿qué le pasa a `|ψ|²`?
-
-$(@bind q_cuantica opciones([
-    "No cambia: es un estado estacionario",
-    "Oscila de un lado a otro de la caja",
-    "Se vuelve cero",
-]))
+!!! warning "Reto extra"
+    En la celda de arriba añade `tipo_de_division = typeof(a / b)` dentro de la tupla. ¿Por qué `tipo_de_a` es `Int64` pero `tipo_de_division` es `Float64`, aunque `a` y `b` sean enteros? Conecta tu respuesta con las secciones de operaciones y de tipos.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000074
-corregir(q_cuantica, "No cambia: es un estado estacionario",
-    "Un solo estado solo gira su fase, y la fase global desaparece al elevar al cuadrado. Para que algo se mueva hacen falta **al menos dos** energías.",
-    "Con un solo estado, `ψ` solo se multiplica por `e^(-iEt)`, que tiene módulo 1. ¿Qué le pasa a `|ψ|²`?")
-
-# ╔═╡ d0000001-0000-5000-8000-000000000075
+# ╔═╡ 7cc5535b-a33d-5dcc-87b9-c3fe9817ce04
 md"""
-!!! info "📌 En resumen"
-    - `|ψ(x)|²` es la densidad de probabilidad de encontrar la partícula cerca de `x`.
-    - Un estado de energía definida es estacionario; solo gira su fase.
-    - Mezclar dos energías produce movimiento a la frecuencia `(E₂ - E₁)`.
-
-$(plegable("🔭 Zoom: el espacio de Hilbert", md"`ψ` vive en `L²[0,1]`, y `{ψₙ}` es una base ortonormal (las series de senos de Fourier). Un estado general es `Σ cₙψₙe^(-iEₙt)`. La evolución es unitaria porque `e^(-iHt)` lo es, y `⟨x⟩(t)` oscila con las frecuencias de Bohr `(Eₘ - Eₙ)`. Esto es lo que ves en el vaivén de `posicion_media`."))
-
-!!! tip "🚀 Último nivel"
-    Hasta aquí usamos funciones y arreglos. Ahora aprenderás a crear tus **propios tipos** y a dejar que Julia elija el método correcto por ti.
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000076
-md"""
-$(kicker("10 · Tus propios tipos"))
-
-# Tipos propios y multiple dispatch
-
-Dificultad $(nivel(5))
-
-!!! tip "🎯 Al terminar sabrás"
-    - Definir un `struct` y funciones asociadas.
-    - Escribir varios métodos de una misma función según los tipos.
-    - Extender operadores como `+` a tus propios objetos.
-
-**① La idea.** El verbo *abrir* significa cosas distintas según lo que abras: una puerta, un archivo, una cuenta. Tú no cambias de verbo; el contexto decide. En Julia, una misma función puede tener varios **métodos**, y Julia elige el correcto según los tipos de **todos** los argumentos. A esto se le llama *multiple dispatch*, y es el corazón del lenguaje.
-
-**② Pruébalo.** Definimos dos tipos: una `Onda` y una `Superposicion` de ondas. La función `evaluar` tiene un método para cada uno, y le enseñamos a `+` a sumar ondas.
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000077
-begin
-    struct Onda
-        amplitud::Float64
-        frecuencia::Float64
-        fase::Float64
-    end
-
-    struct Superposicion
-        ondas::Vector{Onda}
-    end
-
-    evaluar(o::Onda, x) = o.amplitud * sin(o.frecuencia * x + o.fase)
-    evaluar(s::Superposicion, x) = sum(evaluar(o, x) for o in s.ondas)
-    evaluar(f::Function, x) = f(x)
-
-    Base.:+(a::Onda, b::Onda) = Superposicion([a, b])
-    Base.:+(s::Superposicion, o::Onda) = Superposicion([s.ondas; o])
-
-    (; evaluar_onda = evaluar(Onda(1.0, 1.0, 0.0), π / 2),
-       evaluar_funcion = evaluar(cos, 0.0))
-end
-
-# ╔═╡ d0000001-0000-5000-8000-000000000078
-begin
-    o1 = Onda(1.0, 3.0, 0.0)
-    o2 = Onda(0.6, 7.0, 1.0)
-    o3 = Onda(0.3, 12.0, 2.0)
-    suma_ondas = o1 + o2 + o3        # Onda + Onda -> Superposicion; luego + Onda
-
-    xs_t = range(0, 2π, length = 400)
-    grafica(xs_t,
-        [[evaluar(o1, x) for x in xs_t],
-         [evaluar(o2, x) for x in xs_t],
-         [evaluar(o3, x) for x in xs_t],
-         [evaluar(suma_ondas, x) for x in xs_t]];
-        etiquetas = ["onda 1", "onda 2", "onda 3", "suma de las 3"],
-        punteadas = [1, 2, 3])
-end
-
-# ╔═╡ d0000001-0000-5000-8000-000000000079
-md"""
-Julia guarda todos los métodos de `evaluar`. Esta tabla muestra qué tipos acepta cada uno:
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000080
-methods(evaluar)
-
-# ╔═╡ d0000001-0000-5000-8000-000000000081
-md"""
-**③ Comprueba.** En multiple dispatch, ¿qué decide qué método se ejecuta?
-
-$(@bind q_dispatch opciones([
-    "El nombre del archivo donde está la función",
-    "Los tipos de los argumentos con que la llamas",
-    "El orden en que escribiste los métodos",
-]))
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000082
-corregir(q_dispatch, "Los tipos de los argumentos con que la llamas",
-    "Por eso `evaluar(o1, x)` y `evaluar(suma_ondas, x)` ejecutan métodos distintos, aunque la función se llame igual.",
-    "Mira la tabla de métodos: cada línea lista los tipos que acepta. ¿Qué cambia entre `evaluar(::Onda, ...)` y `evaluar(::Superposicion, ...)`?")
-
-# ╔═╡ d0000001-0000-5000-8000-000000000083
-md"""
-!!! info "📌 En resumen"
-    - `struct` define un tipo nuevo con campos.
-    - Una función puede tener muchos métodos; Julia elige según los **tipos** de los argumentos.
-    - Puedes extender operadores como `+` a tus propios tipos.
-
-$(plegable("🔭 Zoom: dispatch como definición por casos", md"El dispatch múltiple es definir una función por casos sobre un **producto** de tipos: `evaluar : (Onda × ℝ) ⊔ (Superposicion × ℝ) → ℝ`. Por eso encaja tan bien con el álgebra: cada método dice cómo actúa la operación en un caso, y Julia compone todo en una única función."))
-"""
-
-# ╔═╡ d0000001-0000-5000-8000-000000000084
-md"""
-$(kicker("11 · Ejercicios"))
+$(kicker("09 · Ejercicios"))
 
 # Practica con autocorrección
 
-Reemplaza cada `missing` por tu respuesta y la celda de abajo te dirá si vas bien. Si te atascas, usa las ayudas **en orden**: primero la pista y, solo si hace falta, la solución. Los ejercicios suben de nivel.
+Reemplaza cada `missing` por tu respuesta y la celda de abajo te dirá si vas bien. Si te atascas, usa las ayudas **en orden**: primero la pista y, solo si hace falta, la solución.
 
-### Ejercicio 1: el área de un círculo ★☆☆☆☆
+### Ejercicio 1: el área de un círculo
 
 Calcula el área de un círculo de radio 5 con la fórmula `π * radio^2` y guárdala en `area_circulo`. (`π` se escribe `\pi` y Tab.)
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000085
+# ╔═╡ 3eeefcce-421d-5474-b0ad-05dcbb44644c
 area_circulo = missing
 
-# ╔═╡ d0000001-0000-5000-8000-000000000086
+# ╔═╡ 0d8e4403-4e2e-50ba-9d3e-b7c03a4948bc
 if ismissing(area_circulo)
     pendiente()
 elseif area_circulo isa Real && area_circulo ≈ π * 5^2
@@ -1342,20 +892,48 @@ else
     incorrecto("Usa la fórmula `π * 5^2`. Revisa que no falte el cuadrado del radio.")
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000087
+# ╔═╡ 5fbaf587-18b9-5b18-89a9-4395ad734964
 md"""
 $(plegable("Pista", md"Escribe `π * 5^2`. Recuerda que `^` es la potencia."))
 $(plegable("Solución", md"`area_circulo = π * 5^2`"))
+"""
 
-### Ejercicio 2: tu propia función ★★☆☆☆
+# ╔═╡ 0c402e53-1326-5c51-9cdc-82de6a4f4005
+md"""
+### Ejercicio 2: ¿entero o decimal?
+
+Escribe una operación con **solo números enteros** que dé como resultado un `Float64` y guárdala en `resultado_decimal`.
+"""
+
+# ╔═╡ e190f24b-1a79-5339-bea1-40ce569c6523
+resultado_decimal = missing
+
+# ╔═╡ 141701f6-f2c5-5809-ba05-729292e03fa5
+if ismissing(resultado_decimal)
+    pendiente()
+elseif resultado_decimal isa Float64
+    correcto()
+else
+    incorrecto("Ahora es de tipo `$(typeof(resultado_decimal))`. Recuerda qué tipo devuelve el operador `/`.")
+end
+
+# ╔═╡ 0d061b57-c3d6-57e4-84a6-ce7d3c522537
+md"""
+$(plegable("Pista", md"Repasa la sección de operaciones: hay un operador que siempre devuelve decimal."))
+$(plegable("Solución", md"`resultado_decimal = 1 / 2` (el operador `/` siempre devuelve `Float64`)"))
+"""
+
+# ╔═╡ 48d7269e-ae86-5b3a-b0bc-d24b82f616f3
+md"""
+### Ejercicio 3: tu propia función
 
 Define una función `triple(x)` que devuelva el triple de `x`. Debe funcionar con enteros y con decimales.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000088
+# ╔═╡ 35dc0a91-7c99-54cc-b6d5-96123ee1aa64
 triple(x) = missing
 
-# ╔═╡ d0000001-0000-5000-8000-000000000089
+# ╔═╡ b42c0d96-fa0d-5c91-b418-7abba8e194f8
 if ismissing(triple(1))
     pendiente()
 elseif triple(4) == 12 && triple(2.5) == 7.5
@@ -1364,74 +942,37 @@ else
     incorrecto("Prueba `triple(4)`: debería dar `12`. Y `triple(2.5)` debería dar `7.5`.")
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000090
+# ╔═╡ 1929fd8f-7993-5928-8e22-f6c601602135
 md"""
 $(plegable("Pista", md"Usa la forma corta de una función: `nombre(x) = ...`. ¿Qué operación te da el triple?"))
 $(plegable("Solución", md"`triple(x) = 3 * x`"))
-
-### Ejercicio 3: tu propio detector de escape ★★★★☆
-
-Escribe `escapa(c, maxit)`: parte de `z = 0`, itera `z = z^2 + c` y devuelve el número de pasos hasta que `abs2(z) > 4`, o `maxit` si nunca ocurre. Como referencia, `escapa(1.0 + 0.0im, 50)` debe dar `3`.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000091
-escapa(c, maxit) = missing
-
-# ╔═╡ d0000001-0000-5000-8000-000000000092
-if ismissing(escapa(0.0 + 0.0im, 50))
-    pendiente()
-elseif escapa(0.0 + 0.0im, 50) == 50 && escapa(1.0 + 0.0im, 50) == 3 && escapa(2.0 + 0.0im, 50) == 2
-    correcto()
-else
-    incorrecto("Comprueba tres casos: `escapa(0.0 + 0.0im, 50)` debe dar `50` (nunca escapa), `escapa(1.0 + 0.0im, 50)` debe dar `3` y `escapa(2.0 + 0.0im, 50)` debe dar `2`.")
-end
-
-# ╔═╡ d0000001-0000-5000-8000-000000000093
-HTML(
-    plegable("Pista", md"Usa un `for n in 1:maxit`. Dentro: actualiza `z`, y si `abs2(z) > 4` haz `return n`. Al final del bucle, `return maxit`.").content *
-    plegable("Solución", Markdown.parse("""
-```julia
-function escapa(c, maxit)
-    z = 0.0 + 0.0im
-    for n in 1:maxit
-        z = z^2 + c
-        if abs2(z) > 4
-            return n
-        end
-    end
-    return maxit
-end
-```
-""")).content
-)
-
-# ╔═╡ d0000001-0000-5000-8000-000000000094
+# ╔═╡ 43e59666-6b07-5e35-89c4-6e2f7583cdac
 md"""
-$(kicker("12 · Autoevaluación"))
+$(kicker("10 · Autoevaluación"))
 
 # ¿Qué ya sabes hacer?
 
 Marca con sinceridad lo que podrías hacer **sin mirar el cuaderno**. Lo que dejes sin marcar es lo que conviene repasar.
 
 $(@bind progreso casillas([
-    "Mostrar mensajes con println y crear variables",
-    "Distinguir / de ÷ y reconocer Int64, Float64 y String con typeof",
+    "Ejecutar una celda y mostrar un mensaje con println",
+    "Hacer operaciones y explicar la diferencia entre / y ÷",
+    "Crear variables y explicar que son etiquetas, no cajas",
+    "Reconocer Int64, Float64 y String con typeof",
     "Leer un mensaje de error sin asustarme",
-    "Definir una función y aplicarla a una lista con el punto",
-    "Explicar cómo se aproxima una onda sumando senos",
-    "Describir con mis palabras cómo se genera el conjunto de Mandelbrot",
-    "Escribir un bucle con for e if para un cálculo iterativo",
-    "Explicar qué mide |ψ|² y por qué un estado estacionario no se mueve",
-    "Definir un struct y métodos que se eligen según el tipo",
+    "Escribir una función sencilla",
+    "Usar if y una comprensión de arreglos",
 ]))
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000095
+# ╔═╡ 1e3edcd4-42bc-5d88-a32a-f896d6a9dd7d
 let
     n_listos = length(progreso)
-    n_total = 9
+    n_total = 7
     mensaje = n_listos == n_total ?
-        "¡Completaste el recorrido! Ya puedes pasar a gráficos con paquetes y a tus propias simulaciones." :
+        "¡Completaste el recorrido! Ya puedes pasar a gráficos y paquetes." :
         "Repasa las secciones que dejaste sin marcar y vuelve cuando quieras."
     HTML("""
     <progress value="$n_listos" max="$n_total" style="width:100%; height:14px; accent-color:#389826"></progress>
@@ -1439,9 +980,9 @@ let
     """)
 end
 
-# ╔═╡ d0000001-0000-5000-8000-000000000096
+# ╔═╡ e07439f8-3e5d-5f6a-a9a7-6859e3fd73f7
 md"""
-$(kicker("13 · Referencia"))
+$(kicker("11 · Referencia"))
 
 # Glosario rápido
 
@@ -1452,16 +993,10 @@ $(kicker("13 · Referencia"))
 | **Tipo** | La "clase" de un dato: número entero, decimal, texto... |
 | **Función** | Código con nombre que recibe argumentos y devuelve un resultado |
 | **Método** | Una versión de una función para ciertos tipos de argumentos |
-| **Multiple dispatch** | Elegir el método según los tipos de todos los argumentos |
 | **Argumento** | Dato que le pasas a una función |
-| **Arreglo** | Lista ordenada de valores; el primer índice es 1 |
+| **Interpolación** | Insertar un valor o cálculo dentro de un texto |
 | **Broadcasting** | Aplicar una función a cada elemento de un arreglo con el punto `.` |
 | **Comprensión** | Forma compacta de construir un arreglo con un bucle |
-| **Número complejo** | Número `a + bi`; en Julia se escribe `a + b*im` |
-| **Iteración** | Repetir un paso una y otra vez, usando el resultado anterior |
-| **Conjunto de Mandelbrot** | Los `c` para los que `z ← z² + c` no escapa al infinito partiendo de `0` |
-| **Función de onda** | Función `ψ(x)` cuyo módulo al cuadrado da la densidad de probabilidad |
-| **Struct** | Tipo propio con campos con nombre |
 | **Reactivo** | Que se actualiza solo cuando cambian los datos de los que depende |
 
 # Recursos oficiales
@@ -1469,21 +1004,20 @@ $(kicker("13 · Referencia"))
 **Manual de Julia (lo esencial):**
 - [Variables](https://docs.julialang.org/en/v1/manual/variables/)
 - [Enteros y números de punto flotante](https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/)
-- [Números complejos](https://docs.julialang.org/en/v1/manual/complex-and-rational-numbers/)
 - [Funciones](https://docs.julialang.org/en/v1/manual/functions/)
 - [Control de flujo](https://docs.julialang.org/en/v1/manual/control-flow/)
 - [Tipos](https://docs.julialang.org/en/v1/manual/types/)
-- [Métodos y multiple dispatch](https://docs.julialang.org/en/v1/manual/methods/)
+- [Guía de estilo](https://docs.julialang.org/en/v1/manual/style-guide/)
 
 **Ecosistema:**
-- [Julia, sitio oficial](https://julialang.org/) y [aprendizaje](https://julialang.org/learning/)
+- [Julia — sitio oficial](https://julialang.org/) y [aprendizaje](https://julialang.org/learning/)
 - [Pluto.jl](https://plutojl.org/) y sus [cuadernos destacados](https://featured.plutojl.org/)
 - [JuliaHub](https://juliahub.com/)
 
-**Próximo paso:** gráficos con paquetes (Plots, Makie) y manejo de paquetes. Ya sabrás por qué conviene tenerlos.
+**Próximo paso:** visualización de datos con gráficos y manejo de paquetes.
 """
 
-# ╔═╡ d0000001-0000-5000-8000-000000000097
+# ╔═╡ 4ee8eeb0-bac6-5a07-9891-cec5b619f138
 html"""
 <div class="footer">
   <strong>NeoCats</strong> · Introducción interactiva a Julia
@@ -1492,100 +1026,84 @@ html"""
 """
 
 # ╔═╡ Cell order:
-# ╟─d0000001-0000-5000-8000-000000000001
-# ╟─d0000001-0000-5000-8000-000000000002
-# ╟─d0000001-0000-5000-8000-000000000003
-# ╟─d0000001-0000-5000-8000-000000000004
-# ╟─d0000001-0000-5000-8000-000000000005
-# ╟─d0000001-0000-5000-8000-000000000006
-# ╟─d0000001-0000-5000-8000-000000000007
-# ╟─d0000001-0000-5000-8000-000000000008
-# ╠═d0000001-0000-5000-8000-000000000009
-# ╟─d0000001-0000-5000-8000-000000000010
-# ╟─d0000001-0000-5000-8000-000000000011
-# ╟─d0000001-0000-5000-8000-000000000012
-# ╟─d0000001-0000-5000-8000-000000000013
-# ╟─d0000001-0000-5000-8000-000000000014
-# ╟─d0000001-0000-5000-8000-000000000015
-# ╠═d0000001-0000-5000-8000-000000000016
-# ╟─d0000001-0000-5000-8000-000000000017
-# ╠═d0000001-0000-5000-8000-000000000018
-# ╟─d0000001-0000-5000-8000-000000000019
-# ╠═d0000001-0000-5000-8000-000000000020
-# ╟─d0000001-0000-5000-8000-000000000021
-# ╟─d0000001-0000-5000-8000-000000000022
-# ╟─d0000001-0000-5000-8000-000000000023
-# ╟─d0000001-0000-5000-8000-000000000024
-# ╠═d0000001-0000-5000-8000-000000000025
-# ╟─d0000001-0000-5000-8000-000000000026
-# ╟─d0000001-0000-5000-8000-000000000027
-# ╟─d0000001-0000-5000-8000-000000000028
-# ╠═d0000001-0000-5000-8000-000000000029
-# ╟─d0000001-0000-5000-8000-000000000030
-# ╟─d0000001-0000-5000-8000-000000000031
-# ╠═d0000001-0000-5000-8000-000000000032
-# ╟─d0000001-0000-5000-8000-000000000033
-# ╠═d0000001-0000-5000-8000-000000000034
-# ╟─d0000001-0000-5000-8000-000000000035
-# ╟─d0000001-0000-5000-8000-000000000036
-# ╟─d0000001-0000-5000-8000-000000000037
-# ╟─d0000001-0000-5000-8000-000000000038
-# ╠═d0000001-0000-5000-8000-000000000039
-# ╟─d0000001-0000-5000-8000-000000000040
-# ╟─d0000001-0000-5000-8000-000000000041
-# ╟─d0000001-0000-5000-8000-000000000042
-# ╟─d0000001-0000-5000-8000-000000000043
-# ╠═d0000001-0000-5000-8000-000000000044
-# ╟─d0000001-0000-5000-8000-000000000045
-# ╠═d0000001-0000-5000-8000-000000000046
-# ╟─d0000001-0000-5000-8000-000000000047
-# ╟─d0000001-0000-5000-8000-000000000048
-# ╟─d0000001-0000-5000-8000-000000000049
-# ╟─d0000001-0000-5000-8000-000000000050
-# ╠═d0000001-0000-5000-8000-000000000051
-# ╟─d0000001-0000-5000-8000-000000000052
-# ╟─d0000001-0000-5000-8000-000000000053
-# ╠═d0000001-0000-5000-8000-000000000054
-# ╠═d0000001-0000-5000-8000-000000000055
-# ╟─d0000001-0000-5000-8000-000000000056
-# ╟─d0000001-0000-5000-8000-000000000057
-# ╟─d0000001-0000-5000-8000-000000000058
-# ╟─d0000001-0000-5000-8000-000000000059
-# ╠═d0000001-0000-5000-8000-000000000060
-# ╟─d0000001-0000-5000-8000-000000000061
-# ╠═d0000001-0000-5000-8000-000000000062
-# ╟─d0000001-0000-5000-8000-000000000063
-# ╠═d0000001-0000-5000-8000-000000000064
-# ╟─d0000001-0000-5000-8000-000000000065
-# ╟─d0000001-0000-5000-8000-000000000066
-# ╟─d0000001-0000-5000-8000-000000000067
-# ╟─d0000001-0000-5000-8000-000000000068
-# ╟─d0000001-0000-5000-8000-000000000069
-# ╟─d0000001-0000-5000-8000-000000000070
-# ╠═d0000001-0000-5000-8000-000000000071
-# ╠═d0000001-0000-5000-8000-000000000072
-# ╟─d0000001-0000-5000-8000-000000000073
-# ╟─d0000001-0000-5000-8000-000000000074
-# ╟─d0000001-0000-5000-8000-000000000075
-# ╟─d0000001-0000-5000-8000-000000000076
-# ╠═d0000001-0000-5000-8000-000000000077
-# ╠═d0000001-0000-5000-8000-000000000078
-# ╟─d0000001-0000-5000-8000-000000000079
-# ╠═d0000001-0000-5000-8000-000000000080
-# ╟─d0000001-0000-5000-8000-000000000081
-# ╟─d0000001-0000-5000-8000-000000000082
-# ╟─d0000001-0000-5000-8000-000000000083
-# ╟─d0000001-0000-5000-8000-000000000084
-# ╠═d0000001-0000-5000-8000-000000000085
-# ╟─d0000001-0000-5000-8000-000000000086
-# ╟─d0000001-0000-5000-8000-000000000087
-# ╠═d0000001-0000-5000-8000-000000000088
-# ╟─d0000001-0000-5000-8000-000000000089
-# ╟─d0000001-0000-5000-8000-000000000090
-# ╠═d0000001-0000-5000-8000-000000000091
-# ╟─d0000001-0000-5000-8000-000000000092
-# ╟─d0000001-0000-5000-8000-000000000093
-# ╟─d0000001-0000-5000-8000-000000000094
-# ╟─d0000001-0000-5000-8000-000000000095
-# ╟─d0000001-0000-5000-8000-000000000096
-# ╟─d0000001-0000-5000-8000-000000000097
+# ╟─e7f0e7da-36cf-5780-b0fe-59ae6e1e5e4a
+# ╟─24e1e176-e21b-512a-8efb-30e247a99de1
+# ╟─7cadf5ee-4e0b-5c2e-873c-920a05dcc2f2
+# ╟─b5e2329d-160d-508a-9381-0d4493be590e
+# ╟─c0ffee00-0001-5000-8000-0000000000a1
+# ╟─7643af80-dca8-5387-9190-1582621bb73f
+# ╟─60a63814-83b0-5041-9920-41b686892ac3
+# ╠═b8299810-2e68-5bbc-b601-0ec20d0b6fa4
+# ╟─f7565e0f-0f48-5b95-80e5-d5a77dd6774a
+# ╟─af8c87a7-b6a4-5d5b-9827-b71678bf9a14
+# ╟─b53c27b3-e2d1-5b0c-b0a8-baf8fa8b1a73
+# ╟─aa47e838-7cee-5512-9c92-ecd8d9729e99
+# ╟─3562d3cf-62bc-5e00-8489-02af1cf6a5f5
+# ╟─94145ffa-604b-5efb-9dc1-883cad451383
+# ╠═ea33082a-fbff-5b3c-abbc-e1c377fec7cc
+# ╟─dba93151-8cb2-5453-9843-d35cb39bb17b
+# ╠═58859913-ec90-575c-9eb0-03e1795a2efc
+# ╟─ae70e42c-cd3b-5c58-8761-68e20feed419
+# ╟─2c15e65a-9c85-524d-a5a6-45719b68ab8f
+# ╠═2837038d-94a7-5881-8f13-243480c3a57f
+# ╟─409db08a-2289-5729-a1b2-201e552f400f
+# ╟─f5162cbe-a684-5fa2-a14a-705d3d60689a
+# ╟─3829a7ae-2729-58f0-a93a-b95a6a0e5746
+# ╟─1888f291-7b93-5987-9759-01bf2da6b37f
+# ╠═835706bc-afb9-52fb-800e-aed49f01ec0b
+# ╟─1eed76d0-a68f-558c-b924-c4bc914341fe
+# ╟─5cabd81d-5dfc-5ef5-a136-220e06791a33
+# ╟─c7633dd6-c0b3-59ca-8a12-144537ac258c
+# ╠═17da2c96-c7ca-5dcd-82ea-3e81922bec2d
+# ╟─7389b706-bbdd-5efd-bc9e-9a4ad01e880b
+# ╟─51c69ac1-587e-53e9-86a2-e043a686d88e
+# ╟─b0110001-b108-5e89-99bd-9d14e02002f4
+# ╠═20be8be1-e097-5d11-b725-73aca16ea3a1
+# ╟─9e0c600f-901c-513a-a583-bd5e0c428bd7
+# ╟─266439b7-3d74-5daf-b795-4624e293fbf0
+# ╠═2ecbe4cb-28d3-5885-9572-2db7fbdbe1f1
+# ╟─21a97c4b-89da-5617-ad50-7f4c0b60f978
+# ╟─d92807ee-be04-52bc-af11-e209b0829ec2
+# ╟─77352daf-5f47-5aeb-b885-369c1c1dd974
+# ╟─a50811ad-b346-5c45-a21f-2341c312827e
+# ╠═0cd7a13b-c8b1-5d11-86ec-c18991ea11a3
+# ╟─3d708ccb-ab98-5955-98fa-0197cc1569db
+# ╟─587dc61e-245c-5d9d-b8be-b0fbcb901795
+# ╟─0b25b513-f1d0-5b1e-8ea8-9d29057b1e95
+# ╟─614639aa-b65a-5b66-8cd4-989a6592ffe2
+# ╟─7340c7c8-d62b-5b96-b41b-0d935d75f95c
+# ╟─36851c36-d771-5578-bea7-d3db96a49ae6
+# ╠═61bf1812-e29f-5782-acfa-4bdb73a23b82
+# ╠═5699d052-3f84-5300-a26c-7342b576ed22
+# ╟─ed3c9868-5d78-53a5-b4ba-590f3248d1e4
+# ╟─e9c654a4-28c4-57c8-ab94-ea35dd829a61
+# ╟─d194f6c3-45af-5f67-8f1f-f61c247ab9ff
+# ╟─c96cffb8-32ee-5bb1-82a9-a4b1c9e1fcba
+# ╠═0113c173-b11c-5c64-879e-6c9d5c8aa501
+# ╟─7356fdb5-ee15-5290-8199-04f3bb408021
+# ╠═3a4eeb0c-e89a-590c-bfef-9800f10925b2
+# ╟─14f40fae-9e56-521a-83c1-a9f10c362c68
+# ╟─45b0d443-4bee-5d00-94c3-4d52e231656f
+# ╟─97197bc8-11c1-5a31-b8d0-59949b6263a7
+# ╟─a7e6930f-f5bc-58f1-8483-fdd35800903c
+# ╟─631b9fde-c48e-5b12-850c-d74a37edfc14
+# ╠═a4e1e17c-31bb-59c4-9876-92af3c5ebdc5
+# ╟─79430361-53a9-54ae-8fe8-8b2cd53173c2
+# ╟─9f5a015c-d1c6-5d7f-b167-0a2a87457214
+# ╟─de33c469-5b0b-5694-9eb9-7dc5e051d6cb
+# ╟─7cc5535b-a33d-5dcc-87b9-c3fe9817ce04
+# ╠═3eeefcce-421d-5474-b0ad-05dcbb44644c
+# ╟─0d8e4403-4e2e-50ba-9d3e-b7c03a4948bc
+# ╟─5fbaf587-18b9-5b18-89a9-4395ad734964
+# ╟─0c402e53-1326-5c51-9cdc-82de6a4f4005
+# ╠═e190f24b-1a79-5339-bea1-40ce569c6523
+# ╟─141701f6-f2c5-5809-ba05-729292e03fa5
+# ╟─0d061b57-c3d6-57e4-84a6-ce7d3c522537
+# ╟─48d7269e-ae86-5b3a-b0bc-d24b82f616f3
+# ╠═35dc0a91-7c99-54cc-b6d5-96123ee1aa64
+# ╟─b42c0d96-fa0d-5c91-b418-7abba8e194f8
+# ╟─1929fd8f-7993-5928-8e22-f6c601602135
+# ╟─43e59666-6b07-5e35-89c4-6e2f7583cdac
+# ╟─1e3edcd4-42bc-5d88-a32a-f896d6a9dd7d
+# ╟─e07439f8-3e5d-5f6a-a9a7-6859e3fd73f7
+# ╟─4ee8eeb0-bac6-5a07-9891-cec5b619f138
