@@ -1,124 +1,170 @@
-# static-export-template
+<div align="center">
 
-This is a demo repository containing two [Pluto](https://github.com/fonsp/Pluto.jl) notebooks that are **automatically converted to HTML** by a github action, and published to github pages! 🌝
+# 🌌 NeoJulia
 
-See the github pages deployment of this repository:
-https://juliapluto.github.io/static-export-template/
+### Libretas interactivas de matemáticas con Julia y Pluto
 
-# How to use the template
+*Dibuja, mueve, rompe y reconstruye las ideas. Todo se recalcula al instante.*
 
-### 👉 Step 1
+<br>
 
-Create a GitHub account, and click on ["Use this template"](https://github.com/JuliaPluto/static-export-template/generate). Choose a new name!
+[![Julia](https://img.shields.io/badge/Julia-9558B2?style=for-the-badge&logo=julia&logoColor=white)](https://julialang.org)
+[![Pluto](https://img.shields.io/badge/Pluto.jl-interactivo-F2A900?style=for-the-badge)](https://github.com/fonsp/Pluto.jl)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-en%20l%C3%ADnea-2b6a4a?style=for-the-badge&logo=github&logoColor=white)](https://navanibautista.github.io/NeoJulia/)
+[![Español](https://img.shields.io/badge/idioma-espa%C3%B1ol-1d4f91?style=for-the-badge)](#)
 
-<img width="400" alt="screenshot of clicking the Use-this-template button" src="https://user-images.githubusercontent.com/6933510/103711531-f7cdc800-4fb7-11eb-98b7-6ebd070a337b.png">
+<br>
 
-You now have your own repository (take a look at the URL), containing a copy of the template files, including the file you are currently reading (`README.md`)!
+### [📖 &nbsp;Abrir *Pensar en relaciones*&nbsp; →](https://navanibautista.github.io/NeoJulia/pensar_en_relaciones.html)
 
-### 👉 Step 2
+</div>
 
-Click on **Add files** (or **+**), and then **Upload files**. In the next page, upload your `.jl` notebook files.
+<br>
 
-<img width="400" alt="screenshot of clicking the Upload-files button" src="https://user-images.githubusercontent.com/6933510/103710071-67da4f00-4fb4-11eb-9943-b66f26119d36.png">
+---
 
-Your notebooks will run on github every time that you update the files in this repository. To check the progress, go to the ["Actions" page](./actions) of your repository, you will find the _workflow_ for the last commit.
+## ℹ️ Info
 
-<img width="400" alt="screenshot of the actions page, showing a currently running workflow" src="https://user-images.githubusercontent.com/6933510/103711844-978b5600-4fb8-11eb-8b1b-1e5bdacc1c85.png">
+> [!NOTE]
+> **NeoJulia** reúne libretas de matemáticas escritas para leerse *y* para tocarse: cada una es un solo archivo `.jl` que se abre con Pluto.
 
-Wait for the Action to finish running your notebook.
+| | |
+|:--|:--|
+| 🧩 **Lenguaje** | [Julia](https://julialang.org) |
+| 🪐 **Entorno** | [Pluto.jl](https://github.com/fonsp/Pluto.jl) (libretas reactivas) |
+| 📓 **Archivo** | `pensar_en_relaciones.jl` · ≈ 330 KB · 5 104 líneas · 306 celdas |
+| 📖 **Contenido** | Capítulos 0 a 9 y tres apéndices, basados en *Relational Thinking* (capítulos 0 a 8) |
+| 🌎 **Idioma** | Español, con la terminología de los cursos de matemáticas en México (*gráfica*, *vértice*, *flecha*, *lazo*, *funtor*) |
+| 📦 **Paquetes extra** | Ninguno: no hay nada que instalar |
+| 🛠️ **Para ejecutarla** | Julia y Pluto instalados en tu computadora |
+| 🌐 **Lectura en línea** | [GitHub Pages](https://navanibautista.github.io/NeoJulia/) |
+| 🔗 **Repositorio** | <https://github.com/NavaniBautista/NeoJulia> |
+| 🔄 **Actualización** | Automática con GitHub Actions en cada cambio al repositorio |
 
-### 👉 Step 3
+---
 
-Go to the ["Settings" page](./settings) of your repository, and go to [the "Pages" section](./settings/pages). For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
+## 📓 Libretas
 
-<img width="400" alt="screenshot of the Pages settings, displaying the URL after the web page is ready" src="https://user-images.githubusercontent.com/6933510/103711695-43807180-4fb8-11eb-9ba8-a96a70612177.png">
+<table>
+<tr>
+<td width="72" align="center"><h1>🕸️</h1></td>
+<td>
 
-Don't worry if it doesn't work immediately! It can take a while for the web page to be ready, even after your settings page says it's done. (Github pages says 20 minutes, but it can take even longer.)
+### Pensar en relaciones
+`pensar_en_relaciones.jl`
 
-## Update notebook files
+Un recorrido interactivo, en español, por el **pensamiento relacional**: empieza con gráficas dirigidas dibujadas a mano y llega hasta categorías, funtores y la reescritura de gráficas. Sigue de cerca los capítulos 0 a 8 del libro *Relational Thinking*, con definiciones, teoremas, rompecabezas y preguntas para pensar, todo escrito como en un libro de matemáticas.
 
-To update an existing notebook file, simply repeat Step 2 above! (You can also use **Add files** `>` **Upload files** to _update_ upload a file that already exists on the repository.)
+</td>
+</tr>
+</table>
 
-Are you working on this website and planning to make many changes? Then it might be nice to use [GitHub Desktop](https://github.com/apps/desktop), a program on your computer that lets you synchronise your local files with github.com more easily, without having to upload to the website each time. If you are familiar with using the terminal, then you can also use the `git` command to publish changes.
+### ✨ Qué hace especial a esta libreta
 
-# Alternative setup: add web pages to an existing repository
+| | |
+|:--|:--|
+| 🖱️ **Interactiva** | Editor para dibujar gráficas con el ratón, deslizadores y preguntas que se corrigen solas |
+| 🧮 **Código = matemáticas** | Las celdas de Julia son la traducción directa de las definiciones |
+| 📚 **Estilo de libro** | Definiciones, proposiciones, demostraciones (∎), ejemplos y rompecabezas |
+| 🧭 **Navegable** | Índice clicable al inicio y glosario al final |
+| ⚡ **Ligera** | No se instalan paquetes y las animaciones se pausan fuera de pantalla |
 
-If you already have a github repository with some pluto notebooks in it, you may want to add a web view like the one for this repository. In that case, the steps are slightly different. In this case, I assume that you are familiar with adding files to a repository. If not, follow the steps above.
+### 🗺️ Ruta de aprendizaje
 
-### 👉 Step 1
-
-From this repository, download [ExportPluto.yaml](./.github/workflows/ExportPluto.yaml). 
-
-Save the file in your own repository, in the same location: make a folder `.github` in the main directory, within that a folder `workflows`, and add the file there, with the name `ExportPluto.yaml`. Commit the new file to your repository. 
-
-*Note: The yaml file states that github should use the github notebooks in the `main` branch or `master` branch of your repository. If you changed the name of your default branch, or you want to use a different branch, change `main` in [line 5](https://github.com/JuliaPluto/static-export-template/blob/main/.github/workflows/ExportPluto.yaml#L5) in the yaml file to the name of your favourite branch.*
-
-Your notebooks will run on github every time that you update the files in this repository. To check the progress, click on ["Actions"](./actions), you will find the _workflow_ for the last commit.
-
-<img width="400" alt="Schermafbeelding 2021-01-06 om 00 45 25" src="https://user-images.githubusercontent.com/6933510/103711844-978b5600-4fb8-11eb-8b1b-1e5bdacc1c85.png">
-
-### 👉 Step 2
-
-Go to the ["Settings" page](./settings) of your repository, and go to [the "Pages" section](./settings/pages). For the "Source", choose `gh-pages`. Wait a minute for everything to initialize, and the URL to your web page will be shown! 
-
-<img width="400" alt="Schermafbeelding 2021-01-06 om 00 43 00" src="https://user-images.githubusercontent.com/6933510/103711695-43807180-4fb8-11eb-9ba8-a96a70612177.png">
-
-Don't worry if it doesn't work immediately! It can take a while for the web page to be ready, even after your settings page says it's done. (Github pages says 20 minutes, but it can take even longer.)
-
-
-# 💡Tips
-
-### Julia Packages
-
-Because Pluto has a [built-in package manager](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%8E%81-Package-management), packages will automatically work on the website!
-
-### Default files
-
-This files `README.md` and `My cool notebook.jl` are example files, and you can safely edit or delete them! After you have set up your repository, you can remove these setup instructions from the `README.md` file, and write a description of your project.
-
-### Not working?
-
-If your website is not automatically updating, then go to the **"Actions"** page of your repository, and take a look at the latest logs. If they show a ❌ symbol, then something went wrong. Click on it, and carefully read the error message. If you get stuck, be sure to ask for help: open an issue at https://github.com/JuliaPluto/static-export-template/issues/new and send us a link to your repository.
-
-### Homepage
-
-If you go to the (GitHub Pages) URL of repository, you will see a small index of the notebooks in this repository. You can customize this page, two options are:
-
--   Create your own `index.html` or `index.md` file, it will be used as the homepage.
--   Rename one of your notebooks to `index.jl`, and it will be the default notebook!
-
-# License
-
-This *template* repository is [Unlicensed](https://unlicense.org), which means that you can do anything you want with it! When you use this template, you are also free to remove this license message.
+```mermaid
+flowchart LR
+    A["0 · Gráficas<br/>dirigidas"] --> B["1 · Datos"]
+    B --> C["2 · Sistemas<br/>dinámicos"]
+    C --> D["3-4 · Planos"]
+    D --> E["5 · Categorías"]
+    E --> F["6 · Combinar<br/>gráficas"]
+    F --> G["7 · Gráficas que<br/>evolucionan"]
+    G --> H["8-9 · Modelos<br/>y tesis"]
+```
 
 <details>
-<summary>View license text</summary>
-(This license applies to the template https://github.com/JuliaPluto/static-export-template, not necessarily to the user of the template.)
+<summary><b>📑 Ver el índice completo de capítulos</b></summary>
 
-```
-This is free and unencumbered software released into the public domain.
+<br>
 
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
+| Capítulo | Tema |
+|:--:|:--|
+| **0** | Gráficas dirigidas |
+| **1** | Datos |
+| **2** | Sistemas dinámicos con Kiki y Bouba |
+| **3 – 4** | Planos (I y II) |
+| **5** | Categorías |
+| **6** | Combinar gráficas |
+| **7** | Gráficas que evolucionan |
+| **8** | Una mirada más allá: modelos del mundo que evolucionan |
+| **9** | Nivel tesis: componer sistemas dinámicos |
+| **A · B · C** | Glosario, referencias y «Detrás del telón» |
 
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-For more information, please refer to <https://unlicense.org>
-```
 </details>
+
+---
+
+## 🚀 Cómo entrar
+
+### 🌐 Opción 1 · Leer en el navegador
+*Sin instalar nada.*
+
+> 👉 **<https://navanibautista.github.io/NeoJulia/pensar_en_relaciones.html>**
+>
+> Índice de todas las libretas: <https://navanibautista.github.io/NeoJulia/>
+
+> [!NOTE]
+> Esta versión es una exportación estática: sirve para leer y ver las figuras. Para cambiar el código y que todo se recalcule, usa la opción 2.
+
+### 💻 Opción 2 · Ejecutar en tu computadora
+*Totalmente interactiva.*
+
+**1.** Instala [Julia](https://julialang.org/downloads/).
+
+**2.** Descarga el repositorio:
+
+```bash
+git clone https://github.com/NavaniBautista/NeoJulia.git
+cd NeoJulia
+```
+
+**3.** Abre Julia y ejecuta:
+
+```julia
+import Pluto
+Pluto.run(notebook = "pensar_en_relaciones.jl")
+```
+
+La libreta se abrirá en tu navegador. La primera vez, Pluto instalará solo lo que necesite.
+
+<details>
+<summary><b>¿No tienes Pluto instalado?</b></summary>
+
+<br>
+
+Dentro de Julia escribe `]` para entrar al modo de paquetes y luego:
+
+```julia
+add Pluto
+```
+
+</details>
+
+---
+
+## 🗂️ Contenido del repositorio
+
+| Archivo | Descripción |
+|:--|:--|
+| 📓 `pensar_en_relaciones.jl` | Libreta interactiva sobre gráficas, categorías y reescritura |
+| 📄 `README.md` | Este archivo |
+
+Las libretas se convierten automáticamente a HTML con **GitHub Actions** y se publican en **GitHub Pages** cada vez que se actualiza el repositorio.
+
+---
+
+<div align="center">
+
+Hecho con 💜 y Julia por [@NavaniBautista](https://github.com/NavaniBautista)
+
+</div>
